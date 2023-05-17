@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="458.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.Recommendation">
+
+    <children>
+        <Label layoutX="119.0" layoutY="30.0" text="지역별 관광명소/ 맛집 추천">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+        <TableView fx:id="tv_recommend" layoutX="105.0" layoutY="139.0" prefHeight="230.0" prefWidth="248.0">
+            <columns>
+                <TableColumn fx:id="tc_recommend_playland" editable="false" prefWidth="121.20000457763672" text="관광명소" />
+                <TableColumn fx:id="tc_recommend_food" prefWidth="125.59999084472656" text="맛집" />
+            </columns>
+        </TableView>
+      <MenuButton fx:id="mb_recommend_Si" layoutX="105.0" layoutY="109.0" mnemonicParsing="false" text="시">
+         <items>
+            <MenuItem mnemonicParsing="false" text="대구시" />
+            <MenuItem mnemonicParsing="false" text="남원시" />
+         </items>
+      </MenuButton>
+      <MenuButton fx:id="mb_recommend_Do" layoutX="105.0" layoutY="86.0" mnemonicParsing="false" text="도">
+         <items>
+          <MenuItem mnemonicParsing="false" text="경상북도" />
+          <MenuItem mnemonicParsing="false" text="전라남도" />
+         </items>
+      </MenuButton>
+      <MenuButton fx:id="mb_recommend_what" layoutX="271.0" layoutY="109.0" mnemonicParsing="false" text="정렬기준">
+         <items>
+            <MenuItem fx:id="menu_review" mnemonicParsing="false" onAction="#array_review" text="평점 평균순" />
+            <MenuItem fx:id="menu_visitor" mnemonicParsing="false" onAction="#array_visitor" text="방문자순" />
+         </items>
+      </MenuButton>
+    </children>
+
+</AnchorPane>

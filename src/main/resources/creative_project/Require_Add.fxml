@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.Require_Add">
+
+    <children>
+        <Label layoutX="122.0" layoutY="26.0" text="관광지, 맛집 목록 추가 요청">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+
+        <Label layoutX="138.0" layoutY="90.0" text="분류" />
+        <Label layoutX="130.0" layoutY="215.0" text="추천이유" />
+        <TextArea fx:id="ta_require" layoutX="204.0" layoutY="214.0" prefHeight="128.0" prefWidth="190.0" promptText="맛있었던 음식, 외관, 분위기 등등 자유롭게 작성해주세요. " />
+        <Button fx:id="btn_add_list" layoutX="346.0" layoutY="351.0" mnemonicParsing="false" onAction="#add_require_list" prefHeight="22.0" prefWidth="48.0" text="등록" />
+      <MenuButton fx:id="mb_choose_list" layoutX="204.0" layoutY="86.0" mnemonicParsing="false" text="선택">
+        <items>
+          <MenuItem fx:id="menu_playland_list" mnemonicParsing="false" onAction="#choose_playland_list" text="관광지" />
+          <MenuItem fx:id="menu_food_list" mnemonicParsing="false" onAction="#choose_food_list" text="맛집" />
+        </items>
+      </MenuButton>
+      <Label layoutX="137.0" layoutY="157.0" text="주소" />
+      <MenuButton fx:id="mb_choose_Do" layoutX="205.0" layoutY="152.0" mnemonicParsing="false" onAction="#choose_Do" text="도">
+         <items>
+            <MenuItem mnemonicParsing="false" text="경상북도" />
+            <MenuItem mnemonicParsing="false" text="전라남도" />
+         </items>
+      </MenuButton>
+      <MenuButton fx:id="mb_choose_Si" layoutX="205.0" layoutY="175.0" mnemonicParsing="false" onAction="#choose_Si" text="시">
+         <items>
+            <MenuItem mnemonicParsing="false" text="대구시" />
+            <MenuItem mnemonicParsing="false" text="남원시" />
+         </items>
+      </MenuButton>
+      <Label layoutX="113.0" layoutY="123.0" text="상호(관광지)명" />
+      <TextField fx:id="tf_nameOf_there" layoutX="204.0" layoutY="119.0" prefHeight="22.0" prefWidth="125.0" />
+    </children>
+
+</AnchorPane>

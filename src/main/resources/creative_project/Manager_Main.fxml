@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.control.Button?>
+<ScrollPane fx:id="sp_manager_main" maxWidth="1015.0" minHeight="666.0" minWidth="1015.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.Manager_Main">
+    <content>
+        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1000.0" minWidth="1000.0" prefWidth="1000.0">
+            <children>
+                <Line endX="307.0" layoutX="409.0" layoutY="78.0" startX="-125.0" />
+                <Text layoutX="404.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OutDoorGram" textAlignment="CENTER">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Text>
+                <BorderPane fx:id="bp_manager_sub" layoutX="45.0" layoutY="155.0" maxWidth="910.0" minHeight="475.0" minWidth="910.0" style="-fx-background-color: #ffffff;" />
+            <MenuButton fx:id="mb_manager_function" layoutX="441.0" layoutY="109.0" mnemonicParsing="false" text="관리자 기능">
+              <items>
+                <MenuItem fx:id="menu_add_touristSpot" mnemonicParsing="false" onAction="#add_touristSpot" text="관광지 추가" />
+                <MenuItem fx:id="menu_add_restaurant" mnemonicParsing="false" onAction="#add_restaurant" text="맛집 추가" />
+                  <MenuItem fx:id="menu_view_add_require" mnemonicParsing="false" onAction="#view_add_require" text="관광지/맛집 추가 요청 조회" />
+                  <MenuItem fx:id="menu_view_modify_require" mnemonicParsing="false" onAction="#view_modify_require" text="관광지/맛집 수정 요청 조회" />
+                  <MenuItem fx:id="menu_modify_touristSpot" mnemonicParsing="false" onAction="#modify_touristSpot" text="관광지 정보 수정" />
+                  <MenuItem fx:id="menu_modify_restaurant" mnemonicParsing="false" onAction="#modify_restaurant" text="맛집 정보 수정" />
+                  <MenuItem fx:id="menu_remove_review" mnemonicParsing="false" onAction="#remove_review" text="리뷰 삭제" />
+              </items>
+            </MenuButton>
+            </children>
+            <Button fx:id="btn_logout" layoutX="653.0" layoutY="40.0" mnemonicParsing="false" onAction="#logout" text="로그아웃" />
+        </AnchorPane>
+    </content>
+    <padding>
+        <Insets bottom="40.0" />
+    </padding>
+</ScrollPane>

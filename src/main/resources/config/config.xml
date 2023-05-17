@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+    <typeAliases>
+     <!-- 타입, DTO 이름과 DTO퍼시스턴트 경로지정 -->
+        <typeAlias alias="playLandDTO" type="persistence.dto.playLandDTO"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!--  connecting to Local MySql -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost/outdoorgram?characterEncoding=utf8&amp;serverTimezone=UTC&amp;useSSL=false" />
+                <property name="username" value="root"/>
+                <property name="password" value="1234"/>
+            </dataSource>
+
+        </environment>
+    </environments>
+    <!-- 수정할 부분 -->
+    <mappers>
+        <mapper resource="sqlMapper/playland.xml"/>
+       <!-- 매퍼 경로 지정 -->
+    </mappers>
+</configuration>

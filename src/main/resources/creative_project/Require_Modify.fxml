@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="449.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.Require_Modify">
+    <children>
+        <Label layoutX="107.0" layoutY="67.0" text="맛집 / 관광지 정보 변경 및 삭제 요청">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="111.0" layoutY="121.0" text="분류" />
+        <Label layoutX="99.0" layoutY="153.0" text="요청정보" />
+        <TextArea fx:id="ta_require" layoutX="163.0" layoutY="153.0" prefHeight="145.0" prefWidth="170.0" promptText="맛집,관광지 별 변경된 사항(위치,영업유무,등등)을 말씀해주세요" />
+        <Button fx:id="btn_add_require" layoutX="293.0" layoutY="312.0" mnemonicParsing="false" onAction="#add_require" text="등록" />
+      <MenuButton fx:id="mb_choose" layoutX="163.0" layoutY="117.0" mnemonicParsing="false" text="선택">
+        <items>
+          <MenuItem fx:id="menu_playland" mnemonicParsing="false" onAction="#choose_playland" text="관광지" />
+          <MenuItem fx:id="menu_food" mnemonicParsing="false" onAction="#choose_food" text="맛집" />
+        </items>
+      </MenuButton>
+    </children>
+</Pane>

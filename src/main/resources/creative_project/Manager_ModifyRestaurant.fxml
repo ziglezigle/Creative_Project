@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"  prefHeight="600.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.Manager_ModifyRestaurant">
+    <children>
+        <Pane layoutX="-71.0" layoutY="35.0" prefHeight="565.0" prefWidth="747.0">
+            <children>
+                <TableView fx:id="tv_restaurantList" layoutX="113.0" prefHeight="338.0" prefWidth="604.0">
+                    <columns>
+                        <TableColumn fx:id="tc_restaurantName" prefWidth="99.20001220703125" text="상호명" />
+                        <TableColumn fx:id="tc_restaurantAddress" prefWidth="121.0" text="주소" />
+                        <TableColumn fx:id="tc_restaurantCategory" prefWidth="382.5" text="음식점 분류" />
+                    </columns>
+                </TableView>
+                <TextField fx:id="tf_restaurantName" layoutX="202.0" layoutY="370.0" prefHeight="26.0" prefWidth="294.0" />
+                <Label layoutX="124.0" layoutY="374.0" text="상호명" />
+                <TextField fx:id="tf_restaurantAddress" layoutX="202.0" layoutY="407.0" prefHeight="26.0" prefWidth="294.0" />
+                <Label layoutX="124.0" layoutY="411.0" text="주소" />
+                <Label layoutX="124.0" layoutY="447.0" text="음식점 분류" />
+                <TextField fx:id="tf_restaurantCategory" layoutX="202.0" layoutY="443.0" prefHeight="26.0" prefWidth="294.0" />
+                <Button fx:id="bt_restaurant_register" layoutX="453.0" layoutY="505.0" mnemonicParsing="false" text="등록" />
+            </children>
+        </Pane>
+    </children>
+
+</AnchorPane>

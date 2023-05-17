@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"  prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.Manager_AddRequireList">
+    <children>
+        <TabPane layoutX="31.0" layoutY="23.0" prefHeight="297.0" prefWidth="542.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tb_touristSpot_require" text="관광지">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tv_touristSpot_require" prefHeight="264.0" prefWidth="542.0">
+                          <columns>
+                            <TableColumn fx:id="tc_touristSpot_name" prefWidth="75.0" text="관광지 이름" />
+                            <TableColumn fx:id="tc_touristSpot_address" prefWidth="116.0" text="주소" />
+                              <TableColumn fx:id="tc_touristSpot_why" prefWidth="350.0" text="추천 이유" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tb_restaurant_require" text="맛집">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tv_restaurant_require" prefHeight="271.0" prefWidth="542.0">
+                          <columns>
+                            <TableColumn fx:id="tc_restaurant_name" prefWidth="82.0" text="상호명" />
+                            <TableColumn fx:id="tc_restaurant_address" prefWidth="125.0" text="주소" />
+                              <TableColumn fx:id="tc_restaurant_why" prefWidth="334.0" text="추천 이유" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <Button fx:id="bt_require_allow" layoutX="510.0" layoutY="346.0" mnemonicParsing="false" text="추가" />
+    </children>
+</AnchorPane>

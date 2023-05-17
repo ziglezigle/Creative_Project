@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="457.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.Add_Review">
+
+    <children>
+        <Label layoutX="283.0" layoutY="29.0" text="이용내역" AnchorPane.bottomAnchor="356.6" AnchorPane.leftAnchor="283.0" AnchorPane.rightAnchor="269.0" AnchorPane.topAnchor="29.0" />
+        <TabPane fx:id="tp_use_list" layoutX="186.0" layoutY="88.0" prefHeight="209.0" prefWidth="248.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tab_playland" text="관광지">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="173.0" prefWidth="270.0">
+                     <children>
+                        <TableView fx:id="tv_use_playland" prefHeight="176.0" prefWidth="246.0">
+                          <columns>
+                            <TableColumn fx:id="tc_use_playlandname" prefWidth="138.39997100830078" text="관광지명" />
+                            <TableColumn fx:id="tc_use_plalanddate" prefWidth="108.800048828125" text="이용날짜" />
+                              <TableColumn prefWidth="103.99993896484375" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tab_food" text="음식점">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <children>
+                            <TableView fx:id="tv_use_food" prefHeight="176.0" prefWidth="246.0">
+                                <columns>
+                                    <TableColumn fx:id="tc_use_foodname" prefWidth="138.39997100830078" text="음식점명" />
+                                    <TableColumn fx:id="tc_use_fooddate" prefWidth="108.800048828125" text="이용날짜" />
+                                    <TableColumn prefWidth="103.99993896484375" />
+                                </columns>
+                            </TableView>
+                        </children> </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <Label layoutX="188.0" layoutY="303.0" text="평점" />
+        <Label layoutX="187.0" layoutY="331.0" text="후기" />
+        <TextArea fx:id="ta_use_review" layoutX="217.0" layoutY="330.0" prefHeight="87.0" prefWidth="157.0" />
+        <Button fx:id="btn_add_use_list" layoutX="384.0" layoutY="393.0" mnemonicParsing="false" onAction="#add_use_list" prefHeight="22.0" prefWidth="48.0" text="등록" />
+      <MenuButton fx:id="mb_score" layoutX="217.0" layoutY="299.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="69.0" text="선택">
+        <items>
+          <MenuItem fx:id="menu_1" mnemonicParsing="false" onAction="#add_1" text="1점" />
+          <MenuItem fx:id="menu_2" mnemonicParsing="false" onAction="#add_2" text="2점" />
+            <MenuItem fx:id="menu_3" mnemonicParsing="false" onAction="#add_3" text="3점" />
+            <MenuItem fx:id="menu_4" mnemonicParsing="false" onAction="#add_4" text="4점" />
+            <MenuItem fx:id="menu_5" mnemonicParsing="false" onAction="#add_5" text="5점" />
+        </items>
+      </MenuButton>
+
+
+    </children>
+
+</AnchorPane>

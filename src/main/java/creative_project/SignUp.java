@@ -47,6 +47,8 @@ public class SignUp
     @FXML
     private Text t_result;
 
+    @FXML
+    private Button btn_back;
     // 성별 선택
     @FXML
     void setFemale(ActionEvent event)
@@ -59,7 +61,22 @@ public class SignUp
     {
         mb_gender.setText(mi_male.getText());
     }
-
+    @FXML
+    void backMain(ActionEvent event) {
+        loadPage("Login");
+    }
+    public void loadPage(String file_name)
+    {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(file_name + ".fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) btn_back.getScene().getWindow(); // Get the current stage
+            stage.setScene(scene); // Set the scene of the current stage
+            stage.show(); // Show the updated stage
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     // 회원가입 시도
     @FXML
     void trySignUp(ActionEvent event)

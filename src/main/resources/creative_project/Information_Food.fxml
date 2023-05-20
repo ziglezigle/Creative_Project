@@ -24,14 +24,14 @@
                 </items>
             </MenuButton>
             <TextField fx:id="tf_search_food" layoutX="407.0" layoutY="30.0" promptText="음식점명, 관광지 분류, 등등" />
-            <Button fx:id="btn_search_food" layoutX="576.0" layoutY="30.0" mnemonicParsing="false" onAction="#view_search_food" text="검색" />
+            <Button fx:id="btn_search_food" layoutX="334.0" layoutY="30.0" mnemonicParsing="false" onAction="#view_search_food" text="검색" />
       <ScrollPane layoutY="77.0" prefHeight="399.0" prefWidth="624.0">
          <content>
                   <TableView fx:id="tv_information_food" prefHeight="384.0" prefWidth="624.0">
                       <columns>
                           <TableColumn fx:id="tc_food_name" prefWidth="99.20001220703125" text="상호명" />
                           <TableColumn fx:id="tc_food_address" prefWidth="137.80001831054688" text="주소" />
-                          <TableColumn fx:id="tc_food_best" prefWidth="110.19998168945312" text="대표 음식" />
+                          <TableColumn fx:id="tc_food_category" prefWidth="110.19998168945312" text="대표 음식" />
                           <TableColumn fx:id="tc_food_score" minWidth="0.0" prefWidth="60.0" text="평점" />
                   <TableColumn fx:id="tc_food_review" prefWidth="201.5999755859375" text="리뷰" />
                       </columns>

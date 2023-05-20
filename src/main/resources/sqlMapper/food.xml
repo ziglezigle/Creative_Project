@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--조회용 맵퍼-->
+<mapper namespace="mapper.foodMapper">
+    <resultMap id="food" type="persistence.dto.foodDTO">
+        <result property="name" column="name"></result>
+        <result property="address" column="address"></result>
+        <result property="category" column="category"></result>
+
+        <result property="score" column="score"></result>
+        <result property="review" column="review"></result>
+    </resultMap>
+
+    <select id="selectFood" resultMap="food" resultType="String">
+        SELECT name, CONCAT(state, ' ', city, ' ', road, ' ', road_no)AS address, category
+        FROM outdoorgram.food_data;
+    </select>
+
+
+
+</mapper>

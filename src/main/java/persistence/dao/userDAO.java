@@ -28,4 +28,32 @@ public class userDAO {
         }
     }
 
+    public boolean idTest(String logId) {
+        SqlSession session = sqlSessionFactory.openSession();
+        int count = session.selectOne("mapper.userMapper.checkId", logId);
+        return count > 0;
+    }
+    public boolean pwTest(String logId,String logPw) {
+        SqlSession session = sqlSessionFactory.openSession();
+        String pw = session.selectOne("mapper.userMapper.checkPw", logId);
+        if(pw.equals(logPw)){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public void test() {
+        SqlSession session = sqlSessionFactory.openSession();
+        String pw = session.selectOne("mapper.userMapper.checkPw", "wpdldkf123");
+        if(pw.equals("wpdldkf1")){
+            System.out.println("비밀번호가 맞음");
+        }
+        else {
+            System.out.println("비밀번호가틀림");
+            System.out.println(pw);
+        }
+    }
+
 }

@@ -24,4 +24,19 @@
     (#{logId},#{logPw},#{name},#{sex},#{birth},#{digit},#{auth});
 </insert>
 
+    <!-- id 중복검출 -->
+
+    <select id="checkId" resultType="java.lang.Integer">
+        SELECT COUNT(logid)
+        FROM user
+        WHERE logid = #{value}
+    </select>
+
+    <!-- 비밀번호 검증 -->
+    <select id="checkPw" resultType="java.lang.String">
+        SELECT logpw
+        FROM user
+        WHERE logid = #{value}
+        LIMIT 1;
+    </select>
 </mapper>

@@ -5,12 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.apache.ibatis.session.SqlSession;
@@ -98,6 +93,10 @@ public class SignUp
         userDAO user2 = new userDAO(MyBatisConnectionFactory.getSqlSessionFactory());
         t_result.setText("");
         user.setLogId(tf_id.getText());
+
+
+        mainGUI mainGUI = new mainGUI();
+
         user.setLogPw(pf_passwd.getText());
         user.setName(tf_name.getText());
         user.setDigit(tf_phone.getText());
@@ -113,7 +112,14 @@ public class SignUp
 
         user.setSex(gender);
         user.setNickname("테스트닉네임");
-        user2.SignUp(user);
-        //이 밑에 회원가입끝나고 "회원가입 완료" 뜬 후 확인버튼 누르면 메인화면으로 돌아갸야함
+        boolean exists = user2.idTest(tf_id.getText());
+        if (exists) {
+            mainGUI.alert("아이디에러", "이미 같은 아이디가 존재합니다.");
+        } else {
+            user2.SignUp(user);
+            mainGUI.alert("회원가입 완료", "회원가입이 완료되었습니다.");
+            // 회원가입 완료 후 확인 버튼을 누르면 메인화면으로 돌아감
+            // mainGUI 메인화면으로 돌아가는 로직을 추가해야 함
+        }
     }
 }

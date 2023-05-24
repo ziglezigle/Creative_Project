@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -17,6 +18,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 
 import javafx.stage.Stage;
+import persistence.MyBatisConnectionFactory;
+import persistence.dao.userDAO;
 
 public class Login
 {
@@ -144,8 +147,22 @@ public class Login
     {
         try
         {
-            String id = tf_id.getText();
-            String passwd = pf_passwd.getText();
+
+
+            userDAO user = new userDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+            boolean exists = user.idTest(tf_id.getText());
+            if (!exists) {
+                mainGUI.alert("아이디 없음", "아이디가 존재하지않습니다.");
+            }
+            else {
+               boolean result = user.pwTest(tf_id.getText(),pf_passwd.getText());
+                if(result){
+                    mainGUI.alert("로그인 성공!", "");
+                    //이후 로그인된 화면으로 넘어가야함
+                }else {
+                    mainGUI.alert("비밀번호 틀림", "비밀번호가 틀렸습니다.");
+                }
+            }
 
 //
         }

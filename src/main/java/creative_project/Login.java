@@ -2,8 +2,7 @@ package creative_project;
 
 import java.io.IOException;
 
-import creative_project.mainGUI;
-import creative_project.Protocol;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
-import javafx.stage.Screen;
+
 import javafx.stage.Stage;
 
 public class Login
@@ -127,48 +126,7 @@ public class Login
             String id = tf_id.getText();
             String passwd = pf_passwd.getText();
 
-//            mainGUI.writePacket(Protocol.PT_REQ_LOGIN + "`" + id + "`" + passwd); // 로그인 요청
 //
-//            while (true)
-//            {
-//                String packet = mainGUI.readLine(); // 로그인 요청 응답 수신
-//                String packetArr[] = packet.split("`"); // 패킷 분할
-//                String packetType = packetArr[0];
-//
-//                switch (packetType)
-//                {
-//                    /*
-//                     * case Protocol.PT_REQ_LOGIN_INFO: // gui에서 값 가져옴 id = tf_id.getText(); passwd = pf_passwd.getText();
-//                     *
-//                     * mainGUI.writePacket(Protocol.PT_REQ_LOGIN + "`" + id + "`" + passwd); return;
-//                     */
-//                    case Protocol.PT_RES_LOGIN:
-//                    {
-//                        String result = packetArr[1]; // 요청 결과
-//
-//                        switch (result)
-//                        {
-//                            case "1": // 관리자 로그인 성공
-//                            {
-//                                startWindow("Admin_main.fxml", "관리자 모드");
-//                                USER_ID = id;
-//                                return;
-//                            }
-//                            case "2": // 사용자 로그인 성공
-//                            {
-//                                startWindow("User_main.fxml", "OutDoorGram");
-//                                USER_ID = id;
-//                                return;
-//                            }
-//                            case "3": // 로그인 실패
-//                            {
-//                                t_result.setText("로그인 실패!");
-//                                return;
-//                            }
-//                        }
-//                    }
-//                }
-//            }
         }
         catch (Exception e)
         {

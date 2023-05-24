@@ -5,9 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-//버튼 작동안되는버젼
+
+
+//진짜버젼
 public class Main extends Application {
     @Override
     public void start(Stage primarystage) throws IOException {

@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage primarystage) throws IOException {
-        Parent root = (Parent) FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         primarystage.setTitle("Outdoorgram");
         primarystage.setScene(new Scene( root ,600, 400));
 

@@ -13,6 +13,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import persistence.MyBatisConnectionFactory;
+import persistence.dao.userDAO;
+import persistence.dto.userDTO;
+
+
 
 public class SignUp
 {
@@ -49,6 +56,9 @@ public class SignUp
 
     @FXML
     private Button btn_back;
+
+
+
     // 성별 선택
     @FXML
     void setFemale(ActionEvent event)
@@ -65,6 +75,7 @@ public class SignUp
     void backMain(ActionEvent event) {
         loadPage("Login");
     }
+
     public void loadPage(String file_name)
     {
         try {
@@ -81,35 +92,27 @@ public class SignUp
     @FXML
     void trySignUp(ActionEvent event)
     {
-        try
-        {
-            t_result.setText("");
-            String id = tf_id.getText();
-            String passwd = pf_passwd.getText();
-            String name = tf_name.getText();
-            String phone_number = tf_phone.getText();
-            String birth = dp_birth.getValue().toString();
-            String gender;
 
-            // 성별에 따라 gender 값 세팅
-            if (mb_gender.getText().equals("남"))
-                gender = "1";
-            else
-                gender = "0"; //0 이 여자
-            while (true)
-            {
-//
-//
-//
-//
-//
-//
-            }
-        }
-        catch (Exception e)
-        {
-            mainGUI.alert("회원가입 실패", "회원가입 실패! 알맞은 정보를 입력했나요?");
-            e.printStackTrace();
-        }
+        userDTO user = new userDTO();
+
+        userDAO user2 = new userDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+        t_result.setText("");
+        user.setLogId(tf_id.getText());
+        user.setLogPw(pf_passwd.getText());
+        user.setName(tf_name.getText());
+        user.setDigit(tf_phone.getText());
+        user.setBirth(dp_birth.getValue());
+        user.setAuth(1);
+
+        int gender;
+        // 성별에 따라 gender 값 세팅
+        if (mb_gender.getText().equals("남"))
+            gender = 1;
+        else
+            gender = 0; //0 이 여자
+
+        user.setSex(gender);
+        user.setNickname("테스트닉네임");
+        user2.SignUp(user);
     }
 }

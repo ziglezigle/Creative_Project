@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 조회를 위한 매퍼-->
+<mapper namespace="mapper.userMapper">
+    <resultMap id="user" type="persistence.dto.userDTO">
+        <result property="user_id" column="user_id"></result>
+        <result property="nickname" column="nickname"></result>
+        <result property="logId" column="logid"></result>
+        <result property="logPw" column="logpw"></result>
+        <result property="name" column="name"></result>
+        <result property="sex" column="sex"></result>
+        <result property="birth" column="birth"></result>
+        <result property="digit" column="digit"></result>
+        <result property="auth" column="auth"></result>
+    </resultMap>
+
+<!-- 회원가입 -->
+<insert id="SignUp">
+    INSERT INTO USER (
+    logid,logpw,name,sex,birth,digit,auth)
+    VALUES
+    (#{logId},#{logPw},#{name},#{sex},#{birth},#{digit},#{auth});
+</insert>
+
+</mapper>

@@ -94,6 +94,27 @@ public class Login
             e.printStackTrace();
         }
     }
+    @FXML
+    void Login(ActionEvent event){
+        try
+        {
+            // 새로운 윈도우 출력
+            Parent root = FXMLLoader.load(getClass().getResource("User_Main.fxml"));
+            Scene scene = new Scene(root, 1000, 700);
+            Stage primaryStage = (Stage) btn_login.getScene().getWindow();
+            primaryStage.setTitle("사용자");
+            primaryStage.setScene(scene);
+
+            primaryStage.setX((300));
+            primaryStage.setY((50));
+
+            primaryStage.show();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void goManager(ActionEvent event)

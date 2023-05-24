@@ -17,6 +17,7 @@ public class userDAO {
             session.insert("mapper.userMapper.SignUp", userDTO);
             session.commit();
         } catch (Exception e) {
+            //실패할때 팝업을 여기다가
             session.rollback(); // 롤백 처리
             // 예외 처리 코드 작성
             // 예를 들어, 로그 출력 또는 다른 예외 처리 로직을 수행할 수 있습니다.

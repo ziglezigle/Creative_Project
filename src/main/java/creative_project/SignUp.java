@@ -114,5 +114,6 @@ public class SignUp
         user.setSex(gender);
         user.setNickname("테스트닉네임");
         user2.SignUp(user);
+        //이 밑에 회원가입끝나고 "회원가입 완료" 뜬 후 확인버튼 누르면 메인화면으로 돌아갸야함
     }
 }

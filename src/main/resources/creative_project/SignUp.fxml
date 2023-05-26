@@ -5,6 +5,8 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
@@ -14,40 +16,83 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.SignUp">
 
     <children>
-        <Text layoutX="160.0" layoutY="63.0" strokeType="INSIDE" strokeWidth="0.0" text="회원가입" textAlignment="CENTER" wrappingWidth="280.6513671875">
+        <Text layoutX="160.0" layoutY="42.0" strokeType="INSIDE" strokeWidth="0.0" text="회원가입" textAlignment="CENTER" wrappingWidth="280.6513671875">
             <font>
                 <Font size="37.0" />
             </font>
         </Text>
-        <Text layoutX="121.0" layoutY="93.0" strokeType="INSIDE" strokeWidth="0.0" text="반갑습니다! 회원가입에 필요한 정보를 입력해 주세요!" textAlignment="CENTER" wrappingWidth="376.6513671875">
+        <Text layoutX="121.0" layoutY="72.0" strokeType="INSIDE" strokeWidth="0.0" text="반갑습니다! 회원가입에 필요한 정보를 입력해 주세요!" textAlignment="CENTER" wrappingWidth="376.6513671875">
             <font>
                 <Font size="15.0" />
             </font>
         </Text>
-        <Line endX="176.0" layoutX="276.0" layoutY="107.0" startX="-128.0" />
-        <TextField fx:id="tf_id" layoutX="80.0" layoutY="150.0" prefHeight="40.0" prefWidth="200.0" promptText="아이디" />
-        <PasswordField fx:id="pf_passwd" layoutX="317.0" layoutY="150.0" prefHeight="40.0" prefWidth="200.0" promptText="비밀번호 " />
-        <TextField fx:id="tf_name" layoutX="80.0" layoutY="200.0" prefHeight="40.0" prefWidth="200.0" promptText="이름" />
-        <DatePicker fx:id="dp_birth" layoutX="317.0" layoutY="200.0" prefHeight="40.0" prefWidth="200.0" promptText="생년월일" />
-        <TextField fx:id="tf_phone" layoutX="317.0" layoutY="250.0" prefHeight="40.0" prefWidth="200.0" promptText="전화번호" />
-        <MenuButton fx:id="mb_gender" layoutX="80.0" layoutY="250.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="성별을 선택해 주세요">
-            <items>
-                <MenuItem fx:id="mi_male" mnemonicParsing="false" onAction="#setMale" text="남" />
-                <MenuItem fx:id="mi_female" mnemonicParsing="false" onAction="#setFemale" text="여" />
-            </items>
-        </MenuButton>
-        <Button id="btn_sign_up" fx:id="btn_sign_up" layoutX="317.0" layoutY="300.0" mnemonicParsing="false" onAction="#trySignUp" prefHeight="40.0" prefWidth="200.0" text="가입">
-            <font>
-                <Font name="LG Smart UI Bold" size="20.0" />
-            </font></Button>
+        <Line endX="176.0" layoutX="276.0" layoutY="86.0" startX="-128.0" />
         <Text fx:id="t_result" layoutX="74.0" layoutY="326.0" strokeType="INSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="200.0">
             <font>
                 <Font name="LG Smart UI Bold" size="15.0" />
             </font>
         </Text>
-        <Button fx:id="btn_back" layoutX="448.0" layoutY="349.0" mnemonicParsing="false" onAction="#backMain" text="뒤로 가기" />
+        <Button fx:id="btn_back" layoutX="446.0" layoutY="359.0" mnemonicParsing="false" onAction="#backMain" text="뒤로 가기" />
+      <TabPane layoutX="66.0" layoutY="106.0" prefHeight="246.0" prefWidth="467.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="회원 가입">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane prefHeight="222.0" prefWidth="467.0">
+                           <children>
+                                <TextField fx:id="tf_id" layoutX="20.0" layoutY="62.0" prefHeight="40.0" prefWidth="200.0" promptText="아이디" />
+                                <PasswordField fx:id="pf_passwd" layoutX="246.0" layoutY="62.0" prefHeight="40.0" prefWidth="200.0" promptText="비밀번호 " />
+                                <TextField fx:id="tf_name" layoutX="20.0" layoutY="14.0" prefHeight="40.0" prefWidth="200.0" promptText="이름" />
+                                <DatePicker fx:id="dp_birth" layoutX="246.0" layoutY="14.0" prefHeight="40.0" prefWidth="200.0" promptText="생년월일" />
+                                <TextField fx:id="tf_phone" layoutX="246.0" layoutY="111.0" prefHeight="40.0" prefWidth="200.0" promptText="전화번호" />
+                                <MenuButton fx:id="mb_gender" layoutX="20.0" layoutY="159.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="성별을 선택해 주세요">
+                                    <items>
+                                        <MenuItem fx:id="mi_male" mnemonicParsing="false" onAction="#setMale" text="남" />
+                                        <MenuItem fx:id="mi_female" mnemonicParsing="false" onAction="#setFemale" text="여" />
+                                    </items>
+                                </MenuButton>
+                                <Button id="btn_sign_up" fx:id="btn_sign_up" layoutX="246.0" layoutY="159.0" mnemonicParsing="false" onAction="#trySignUp" prefHeight="40.0" prefWidth="200.0" text="회원가입">
+                                    <font>
+                                        <Font name="LG Smart UI Bold" size="20.0" />
+                                    </font>
+                              </Button>
+                              <TextField fx:id="tf_nickname" layoutX="20.0" layoutY="111.0" prefHeight="40.0" prefWidth="200.0" promptText="닉네임" />
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="관리자 가입">
+              <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                          <AnchorPane prefHeight="222.0" prefWidth="467.0">
+                              <children>
+                                  <TextField fx:id="tf_id_admin" layoutX="20.0" layoutY="62.0" prefHeight="40.0" prefWidth="200.0" promptText="아이디" />
+                                  <PasswordField fx:id="pf_passwd_admin" layoutX="246.0" layoutY="62.0" prefHeight="40.0" prefWidth="200.0" promptText="비밀번호 " />
+                                  <TextField fx:id="tf_name_admin" layoutX="20.0" layoutY="14.0" prefHeight="40.0" prefWidth="200.0" promptText="이름" />
+                                  <DatePicker fx:id="dp_birth_admin" layoutX="246.0" layoutY="14.0" prefHeight="40.0" prefWidth="200.0" promptText="생년월일" />
+                                  <TextField fx:id="tf_phone_admin" layoutX="246.0" layoutY="111.0" prefHeight="40.0" prefWidth="200.0" promptText="전화번호" />
+                                  <MenuButton fx:id="mb_gender_admin" layoutX="20.0" layoutY="159.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="성별을 선택해 주세요">
+                                      <items>
+                                          <MenuItem fx:id="mi_male_admin" mnemonicParsing="false" onAction="#setMale" text="남" />
+                                          <MenuItem fx:id="mi_female_admin" mnemonicParsing="false" onAction="#setFemale" text="여" />
+                                      </items>
+                                  </MenuButton>
+                                  <Button id="btn_sign_up" fx:id="btn_sign_up_admin" layoutX="246.0" layoutY="159.0" mnemonicParsing="false" onAction="#trySignUpAdmin" prefHeight="40.0" prefWidth="200.0" text="관리자가입">
+                                      <font>
+                                          <Font name="LG Smart UI Bold" size="20.0" />
+                                      </font>
+                                  </Button>
+                                  <TextField fx:id="tf_nickname_admin" layoutX="20.0" layoutY="111.0" prefHeight="40.0" prefWidth="200.0" promptText="닉네임" />
+                              </children>
+                          </AnchorPane>
+                      </children></AnchorPane>
+              </content>
+          </Tab>
+        </tabs>
+      </TabPane>
     </children>
 
 </AnchorPane>
-
-

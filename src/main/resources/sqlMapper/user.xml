@@ -39,4 +39,11 @@
         WHERE logid = #{value}
         LIMIT 1;
     </select>
+
+    <select id="getAuth" resultType="java.lang.Integer">
+        SELECT auth
+        FROM user
+        WHERE logid = #{value}
+        LIMIT 1;
+    </select>
 </mapper>

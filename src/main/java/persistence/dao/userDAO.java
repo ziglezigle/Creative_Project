@@ -43,6 +43,12 @@ public class userDAO {
             return false;
         }
     }
+    public int getAuth(String logId){
+        SqlSession session = sqlSessionFactory.openSession();
+        int auth = session.selectOne("mapper.userMapper.getAuth", logId);
+        return auth;
+    }
+
 
     public void test() {
         SqlSession session = sqlSessionFactory.openSession();

@@ -98,11 +98,56 @@ public class Login
         }
     }
     @FXML
+    void LoginNormal()
+    {
+        try
+        {
+            // 새로운 윈도우 출력
+            Parent root = FXMLLoader.load(getClass().getResource("User_Main.fxml"));
+            Scene scene = new Scene(root, 1000, 700);
+            Stage primaryStage = (Stage) btn_login.getScene().getWindow();
+            primaryStage.setTitle("사용자");
+            primaryStage.setScene(scene);
+
+            primaryStage.setX((300));
+            primaryStage.setY((50));
+
+            primaryStage.show();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    @FXML
     void Login(ActionEvent event){
         try
         {
             // 새로운 윈도우 출력
             Parent root = FXMLLoader.load(getClass().getResource("User_Main.fxml"));
+            Scene scene = new Scene(root, 1000, 700);
+            Stage primaryStage = (Stage) btn_login.getScene().getWindow();
+            primaryStage.setTitle("사용자");
+            primaryStage.setScene(scene);
+
+            primaryStage.setX((300));
+            primaryStage.setY((50));
+
+            primaryStage.show();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void loginManager()
+    {
+        try
+        {
+            // 새로운 윈도우 출력
+            Parent root = FXMLLoader.load(getClass().getResource("Manager_Main.fxml"));
             Scene scene = new Scene(root, 1000, 700);
             Stage primaryStage = (Stage) btn_login.getScene().getWindow();
             primaryStage.setTitle("사용자");
@@ -158,7 +203,14 @@ public class Login
                boolean result = user.pwTest(tf_id.getText(),pf_passwd.getText());
                 if(result){
                     mainGUI.alert("로그인 성공!", "");
-                    //이후 로그인된 화면으로 넘어가야함
+                    int auth = user.getAuth(tf_id.getText());
+                    switch (auth) {
+                        case 0: LoginNormal();
+                            break;
+                        default: loginManager();
+                        break;
+                    }
+                    
                 }else {
                     mainGUI.alert("비밀번호 틀림", "비밀번호가 틀렸습니다.");
                 }

@@ -12,7 +12,7 @@ public class test {
         playlandDAO playlandDAO = new playlandDAO(MyBatisConnectionFactory.getSqlSessionFactory());
 
 
-        List<persistence.dto.playLandDTO> posts = playlandDAO.showPlayLand();
+        List<persistence.dto.playLandDTO> posts = playlandDAO.showPlayLand(playLandDTO);
        posts.stream().forEach(p ->System.out.println(p.toString()));
 
     }

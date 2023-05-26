@@ -74,7 +74,13 @@
             loadPage("Information_Playland");
             Weatherview(560,40);
         }
-
+///////////////////////////////////////////////////////////////////////////////////
+        @FXML
+        void test(ActionEvent event) {
+            loadPage("forTest");
+            Weatherview(560,40);
+        }
+////////////////////////////////////////////////////////////////////////////////////
         @FXML
         void logout(ActionEvent event) {
             openLoginWindow();

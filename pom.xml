@@ -38,6 +38,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <!--추가된 코드-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -79,8 +80,9 @@
             <version>1.18.22</version>
         </dependency>
 
-    </dependencies>
 
+    </dependencies>
+<!--추가된 코드-->
     <build>
         <plugins>
             <plugin>

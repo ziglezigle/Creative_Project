@@ -2,8 +2,7 @@ package creative_project;
 
 import java.io.IOException;
 
-import creative_project.mainGUI;
-import creative_project.Protocol;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,8 +15,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
-import javafx.stage.Screen;
+
 import javafx.stage.Stage;
+import persistence.MyBatisConnectionFactory;
+import persistence.dao.userDAO;
+import persistence.dto.UserInfo;
+import persistence.dto.userDTO;
 
 public class Login
 {
@@ -95,6 +98,27 @@ public class Login
             e.printStackTrace();
         }
     }
+    @FXML
+    void Login(ActionEvent event){
+        try
+        {
+            // 새로운 윈도우 출력
+            Parent root = FXMLLoader.load(getClass().getResource("User_Main.fxml"));
+            Scene scene = new Scene(root, 1000, 700);
+            Stage primaryStage = (Stage) btn_login.getScene().getWindow();
+            primaryStage.setTitle("사용자");
+            primaryStage.setScene(scene);
+
+            primaryStage.setX((300));
+            primaryStage.setY((50));
+
+            primaryStage.show();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void goManager(ActionEvent event)
@@ -124,51 +148,27 @@ public class Login
     {
         try
         {
-            String id = tf_id.getText();
-            String passwd = pf_passwd.getText();
 
-//            mainGUI.writePacket(Protocol.PT_REQ_LOGIN + "`" + id + "`" + passwd); // 로그인 요청
+
+            userDAO user = new userDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+            boolean exists = user.idTest(tf_id.getText());
+            if (!exists) {
+                mainGUI.alert("아이디 없음", "아이디가 존재하지않습니다.");
+            }
+            else {
+                boolean result = user.pwTest(tf_id.getText(),pf_passwd.getText());
+                if(result){
+                    mainGUI.alert("로그인 성공!", "");
+                    int id = user.getUserId(tf_id.getText(), pf_passwd.getText());
+                    userDTO.setUser_id(id);
+                    //UserInfo.setUser_id(id);
+                    //이후 로그인된 화면으로 넘어가야함
+                }else {
+                    mainGUI.alert("비밀번호 틀림", "비밀번호가 틀렸습니다.");
+                }
+            }
+
 //
-//            while (true)
-//            {
-//                String packet = mainGUI.readLine(); // 로그인 요청 응답 수신
-//                String packetArr[] = packet.split("`"); // 패킷 분할
-//                String packetType = packetArr[0];
-//
-//                switch (packetType)
-//                {
-//                    /*
-//                     * case Protocol.PT_REQ_LOGIN_INFO: // gui에서 값 가져옴 id = tf_id.getText(); passwd = pf_passwd.getText();
-//                     *
-//                     * mainGUI.writePacket(Protocol.PT_REQ_LOGIN + "`" + id + "`" + passwd); return;
-//                     */
-//                    case Protocol.PT_RES_LOGIN:
-//                    {
-//                        String result = packetArr[1]; // 요청 결과
-//
-//                        switch (result)
-//                        {
-//                            case "1": // 관리자 로그인 성공
-//                            {
-//                                startWindow("Admin_main.fxml", "관리자 모드");
-//                                USER_ID = id;
-//                                return;
-//                            }
-//                            case "2": // 사용자 로그인 성공
-//                            {
-//                                startWindow("User_main.fxml", "OutDoorGram");
-//                                USER_ID = id;
-//                                return;
-//                            }
-//                            case "3": // 로그인 실패
-//                            {
-//                                t_result.setText("로그인 실패!");
-//                                return;
-//                            }
-//                        }
-//                    }
-//                }
-//            }
         }
         catch (Exception e)
         {

@@ -10,9 +10,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="405.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.Information_Playland">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="444.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.Information_Playland">
     <children>
-        <ComboBox fx:id="cb_information_Do" layoutX="14.0" layoutY="30.0" prefHeight="26.0" prefWidth="93.0" promptText="도 선택">
+        <ComboBox fx:id="cb_information_Do" layoutX="14.0" layoutY="12.0" prefHeight="26.0" prefWidth="93.0" promptText="도 선택">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="경기도" />
@@ -23,23 +23,32 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <ComboBox fx:id="cb_information_Si" layoutX="119.0" layoutY="31.0" prefHeight="26.0" prefWidth="93.0" promptText="시 선택" />
-        <TextField fx:id="tf_search_playland" layoutX="448.0" layoutY="33.0" promptText="음식점명, 관광지 분류, 등등" />
-        <Button fx:id="btn_search_playland" layoutX="388.0" layoutY="32.0" mnemonicParsing="false" onAction="#view_search_playland" text="검색" />
-        <ScrollPane layoutY="77.0" prefHeight="399.0" prefWidth="624.0">
+        <ComboBox fx:id="cb_information_Si" layoutX="117.0" layoutY="12.0" prefHeight="26.0" prefWidth="93.0" promptText="시 선택" />
+        <TextField fx:id="tf_search_playland" layoutX="407.0" layoutY="16.0" promptText="음식점명, 관광지 분류, 등등" />
+        <Button fx:id="btn_search_playland" layoutX="576.0" layoutY="16.0" mnemonicParsing="false" onAction="#view_search_playland" text="검색" />
+        <ScrollPane layoutX="2.0" layoutY="51.0" prefHeight="314.0" prefWidth="632.0">
             <content>
-                <TableView fx:id="tv_information_playland" prefHeight="384.0" prefWidth="624.0">
-                    <columns>
-                        <TableColumn fx:id="tc_playland_name" prefWidth="99.20001220703125" text="관광지명" />
-                        <TableColumn fx:id="tc_playland_address" prefWidth="137.80001831054688" text="주소" />
-                        <TableColumn fx:id="tc_playland_sort" prefWidth="110.19998168945312" text="관광 분류" />
-                        <TableColumn fx:id="tc_playland_score" minWidth="0.0" prefWidth="60.0" text="평점" />
-                        <TableColumn fx:id="tc_playland_review" prefWidth="201.5999755859375" text="리뷰" />
-                    </columns>
-                </TableView>
+                <AnchorPane>
+                    <TableView fx:id="tv_information_playland" onMouseClicked="#handlePlaylandTableMouseClicked" prefHeight="310.0" prefWidth="630.0">
+                        <columns>
+                            <TableColumn fx:id="tc_playland_name" prefWidth="170.40002137422562" text="관광지명" />
+                            <TableColumn fx:id="tc_playland_address" prefWidth="351.19996643066406" text="주소" />
+                            <TableColumn fx:id="tc_playland_score" minWidth="0.0" prefWidth="109.5999755859375" text="평점" />
+                        </columns>
+                    </TableView>
+                </AnchorPane>
             </content>
         </ScrollPane>
+        <AnchorPane layoutX="10.0" layoutY="369.0" prefHeight="68.0" prefWidth="606.0">
+            <children>
+                <TableView fx:id="tv_selected_review" layoutX="-4.0" layoutY="-54.0" prefHeight="106.0" prefWidth="626.0">
+                    <columns>
+                        <TableColumn fx:id="tc_playland_review_nickname" prefWidth="97.59997844696045" text="닉네임" />
+                        <TableColumn fx:id="tc_playland_review_rate" prefWidth="55.20001220703125" text="평점" />
+                        <TableColumn fx:id="tc_playland_review" prefWidth="472.00002136230466" text="리뷰" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
     </children>
-
 </AnchorPane>
-

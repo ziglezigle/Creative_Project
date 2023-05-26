@@ -21,17 +21,36 @@ public class SignUp
     private TextField tf_id;
 
     @FXML
+    private TextField tf_id_admin;
+
+    @FXML
     private PasswordField pf_passwd;
+
+    @FXML
+    private PasswordField pf_passwd_admin;
 
     @FXML
     private TextField tf_name;
 
     @FXML
+    private TextField tf_name_admin;
+
+
+    @FXML
+    private TextField tf_nickname;
+
+    @FXML
+    private TextField tf_nickname_admin;
+    @FXML
     private TextField tf_phone;
 
     @FXML
+    private TextField tf_phone_admin;
+    @FXML
     private MenuButton mb_gender;
 
+    @FXML
+    private MenuButton mb_gender_admin;
     @FXML
     private MenuItem mi_male;
 
@@ -42,10 +61,16 @@ public class SignUp
     private Button btn_sign_up;
 
     @FXML
+    private Button btn_sign_up_admin;
+
+    @FXML
     private DatePicker dp_birth;
+    @FXML
+    private DatePicker dp_birth_admin;
 
     @FXML
     private Text t_result;
+
 
     @FXML
     private Button btn_back;
@@ -85,6 +110,7 @@ public class SignUp
         {
             t_result.setText("");
             String id = tf_id.getText();
+            String nickname = tf_nickname.getText();
             String passwd = pf_passwd.getText();
             String name = tf_name.getText();
             String phone_number = tf_phone.getText();
@@ -136,5 +162,9 @@ public class SignUp
             mainGUI.alert("회원가입 실패", "회원가입 실패! 알맞은 정보를 입력했나요?");
             e.printStackTrace();
         }
+    }
+    @FXML
+    void trySignUpAdmin(ActionEvent event) {
+
     }
 }

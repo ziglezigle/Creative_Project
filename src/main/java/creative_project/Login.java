@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -120,17 +121,24 @@ public class Login
     }
 
     // 로그인 시도
-    void loginTry() throws IOException
-    {
-        try
-        {
+    void loginTry() throws IOException {
+        try {
+
+            t_result.setText("");
             String id = tf_id.getText();
             String passwd = pf_passwd.getText();
 
+            if (id.isEmpty() || passwd.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("로그인 실패");
+                alert.setHeaderText(null);
+                alert.setContentText("알맞은 정보를 입력했나요?");
+                alert.showAndWait();
+                return;
+            }
 //            mainGUI.writePacket(Protocol.PT_REQ_LOGIN + "`" + id + "`" + passwd); // 로그인 요청
 //
-//            while (true)
-//            {
+            while (true) {
 //                String packet = mainGUI.readLine(); // 로그인 요청 응답 수신
 //                String packetArr[] = packet.split("`"); // 패킷 분할
 //                String packetType = packetArr[0];
@@ -169,13 +177,14 @@ public class Login
 //                    }
 //                }
 //            }
+            }
         }
         catch (Exception e)
         {
             t_result.setText("로그인 실패!");
             e.printStackTrace();
         }
-    }
+        }
 
     // 로그인 성공 시 해당하는 메인으로 넘어감
     private void startWindow(String path, String title) throws Exception

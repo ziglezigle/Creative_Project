@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 조회를 위한 매퍼-->
+<mapper namespace="mapper.reviewMapper">
+
+    <resultMap id="review_by_id" type="persistence.dto.reviewDTO">
+        <result property="nickname" column="nickname"></result>
+        <result property="rate" column="rate"></result>
+        <result property="content" column="content"></result>
+        <result property="date" column="review_date"></result>
+    </resultMap>
+
+    <insert id="insertFoodReview">
+        INSERT INTO review(user_id, food_id, rate, content, review_date)
+        VALUES(#{user_id}, #{id}, #{rate}, #{content}, #{date})
+    </insert>
+
+    <insert id="insertPlaylandReview">
+        INSERT INTO review(user_id, spot_id, rate, content, review_date)
+        VALUES(#{user_id}, #{id}, #{rate}, #{content}, #{date})
+    </insert>
+
+    <select id="getFoodReviews" resultMap="review_by_id" resultType="String">
+        SELECT review_id, nickname, rate, content, review_date
+        FROM user, review rv
+        WHERE user.user_id = rv.user_id AND rv.food_id = #{id}
+        ORDER BY review_date DESC;
+    </select>
+
+    <select id="getPlaylandReviews" resultMap="review_by_id" resultType="String">
+        SELECT review_id, nickname, rate, content, review_date
+        FROM user, review rv
+        WHERE user.user_id = rv.user_id AND rv.spot_id = #{id}
+        ORDER BY review_date DESC;
+    </select>
+</mapper>

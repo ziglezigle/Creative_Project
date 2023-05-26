@@ -8,8 +8,10 @@
         <result property="name" column="NAME"></result>
         <result property="sort" column="sort"></result>
         <result property="address" column="address"></result>
+
         <result property="score" column="score"></result>
         <result property="review" column="review"></result>
+
     </resultMap>
 
     <select id="selectPlayland" resultMap="playland" resultType="String">

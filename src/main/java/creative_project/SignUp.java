@@ -5,35 +5,54 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import persistence.MyBatisConnectionFactory;
 import persistence.dao.userDAO;
 import persistence.dto.userDTO;
 
-
-
-public class SignUp
-{
+public class SignUp {
 
     @FXML
     private TextField tf_id;
 
     @FXML
+    private TextField tf_id_admin;
+
+    @FXML
     private PasswordField pf_passwd;
+
+    @FXML
+    private PasswordField pf_passwd_admin;
 
     @FXML
     private TextField tf_name;
 
     @FXML
+    private TextField tf_name_admin;
+
+
+    @FXML
+    private TextField tf_nickname;
+
+    @FXML
+    private TextField tf_nickname_admin;
+    @FXML
     private TextField tf_phone;
 
     @FXML
+    private TextField tf_phone_admin;
+    @FXML
     private MenuButton mb_gender;
 
+    @FXML
+    private MenuButton mb_gender_admin;
     @FXML
     private MenuItem mi_male;
 
@@ -44,35 +63,37 @@ public class SignUp
     private Button btn_sign_up;
 
     @FXML
+    private Button btn_sign_up_admin;
+
+    @FXML
     private DatePicker dp_birth;
+    @FXML
+    private DatePicker dp_birth_admin;
 
     @FXML
     private Text t_result;
 
+
     @FXML
     private Button btn_back;
 
-
-
     // 성별 선택
     @FXML
-    void setFemale(ActionEvent event)
-    {
+    void setFemale(ActionEvent event) {
         mb_gender.setText(mi_female.getText());
     }
 
     @FXML
-    void setMale(ActionEvent event)
-    {
+    void setMale(ActionEvent event) {
         mb_gender.setText(mi_male.getText());
     }
+
     @FXML
     void backMain(ActionEvent event) {
         loadPage("Login");
     }
 
-    public void loadPage(String file_name)
-    {
+    public void loadPage(String file_name) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource(file_name + ".fxml"));
             Scene scene = new Scene(root);
@@ -83,10 +104,10 @@ public class SignUp
             e.printStackTrace();
         }
     }
+
     // 회원가입 시도
     @FXML
-    void trySignUp(ActionEvent event)
-    {
+    void trySignUp(ActionEvent event) {
 
         userDTO user = new userDTO();
 

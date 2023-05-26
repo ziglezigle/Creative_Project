@@ -2,21 +2,21 @@ package creative_project;
 
 import java.io.IOException;
 
-
+import creative_project.mainGUI;
+import creative_project.Protocol;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
-
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import persistence.MyBatisConnectionFactory;
 import persistence.dao.userDAO;
@@ -120,11 +120,12 @@ public class Login
         }
     }
     @FXML
-    void Login(ActionEvent event){
+    void loginManager()
+    {
         try
         {
             // 새로운 윈도우 출력
-            Parent root = FXMLLoader.load(getClass().getResource("User_Main.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Manager_Main.fxml"));
             Scene scene = new Scene(root, 1000, 700);
             Stage primaryStage = (Stage) btn_login.getScene().getWindow();
             primaryStage.setTitle("사용자");
@@ -142,12 +143,11 @@ public class Login
     }
 
     @FXML
-    void loginManager()
-    {
+    void Login(ActionEvent event){
         try
         {
             // 새로운 윈도우 출력
-            Parent root = FXMLLoader.load(getClass().getResource("Manager_Main.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("User_Main.fxml"));
             Scene scene = new Scene(root, 1000, 700);
             Stage primaryStage = (Stage) btn_login.getScene().getWindow();
             primaryStage.setTitle("사용자");
@@ -200,7 +200,7 @@ public class Login
                 mainGUI.alert("아이디 없음", "아이디가 존재하지않습니다.");
             }
             else {
-               boolean result = user.pwTest(tf_id.getText(),pf_passwd.getText());
+                boolean result = user.pwTest(tf_id.getText(),pf_passwd.getText());
                 if(result){
                     mainGUI.alert("로그인 성공!", "");
                     int auth = user.getAuth(tf_id.getText());
@@ -208,9 +208,9 @@ public class Login
                         case 0: LoginNormal();
                             break;
                         default: loginManager();
-                        break;
+                            break;
                     }
-                    
+
                 }else {
                     mainGUI.alert("비밀번호 틀림", "비밀번호가 틀렸습니다.");
                 }

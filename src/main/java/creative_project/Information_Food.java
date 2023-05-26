@@ -23,7 +23,7 @@ public class Information_Food {
     private TableColumn<?, ?> tc_food_address;
 
     @FXML
-    private TableColumn<?, ?> tc_food_best;
+    private TableColumn<?, ?> tc_food_category;
 
     @FXML
     private TableColumn<?, ?> tc_food_name;
@@ -39,6 +39,9 @@ public class Information_Food {
 
     @FXML
     private TableView<?> tv_information_food;
+
+    @FXML
+    private TableColumn<?, ?> tv_food_review;
 
     @FXML
     void view_search_food(ActionEvent event) {

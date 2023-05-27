@@ -20,35 +20,47 @@ import java.util.ResourceBundle;
 public class Manager_Main implements Initializable {
 
     public static BorderPane manager_sub_root;
+    //관리자 기능 페인
+
     @FXML
     private BorderPane bp_manager_sub;
+    //메인 보더페인
 
     @FXML
     private MenuButton mb_manager_function;
+    //관리자 기능 선택 메뉴
 
     @FXML
     private MenuItem menu_add_restaurant;
+    //맛집 추가
 
     @FXML
     private MenuItem menu_add_touristSpot;
+    //관광지 추가
 
     @FXML
     private MenuItem menu_modify_restaurant;
+    //맛집 정보 수정
 
     @FXML
     private MenuItem menu_modify_touristSpot;
+    //관광지 정보 수정
 
     @FXML
     private MenuItem menu_remove_review;
+    //리뷰 삭제
 
     @FXML
     private MenuItem menu_view_add_require;
+    //추가 요청 조회
 
     @FXML
     private MenuItem menu_view_modify_require;
+    //정보 수정 요청 조회
 
     @FXML
     private Button btn_logout;
+    //로그아웃 버튼
     @FXML
     private ScrollPane sp_manager_main;
 

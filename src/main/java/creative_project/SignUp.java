@@ -98,12 +98,7 @@ public class SignUp
                 gender = "0"; //0 이 여자
             while (true)
             {
-//
-//
-//
-//
-//
-//
+
             }
         }
         catch (Exception e)

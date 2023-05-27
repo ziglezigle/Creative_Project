@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -11,32 +14,32 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.Manager_Review">
 
     <children>
-        <Label layoutX="277.0" layoutY="33.0" prefHeight="17.0" prefWidth="80.0" text="리뷰내역" AnchorPane.bottomAnchor="353.0" AnchorPane.leftAnchor="277.0" AnchorPane.rightAnchor="243.0" AnchorPane.topAnchor="33.0" />
+        <Label layoutX="260.0" layoutY="14.0" prefHeight="17.0" prefWidth="80.0" text="리뷰내역" AnchorPane.bottomAnchor="372.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="260.0" AnchorPane.topAnchor="14.0" />
         <TabPane layoutX="39.0" layoutY="68.0" prefHeight="267.0" prefWidth="511.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab fx:id="tb_touristSpot_review" text="관광지">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tv_touristSpot_reivew" prefHeight="237.0" prefWidth="511.0">
+                        <TableView fx:id="tv_touristSpot_review" prefHeight="237.0" prefWidth="511.0">
                           <columns>
                             <TableColumn fx:id="tc_touristSpot_userName" prefWidth="75.0" text="사용자명" />
                             <TableColumn fx:id="tc_touristSpot_score" prefWidth="75.0" text="평점" />
-                              <TableColumn fx:id="tc_touristSpot_reivew" prefWidth="360.0" text="리뷰 내용" />
+                              <TableColumn fx:id="tc_touristSpot_review" prefWidth="360.0" text="리뷰 내용" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
                     </content>
                 </Tab>
-                <Tab fx:id="tv_restaurant_review" text="음식점">
+                <Tab fx:id="tb_restaurant_review" text="음식점">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tv_restaurant_reivew" prefHeight="237.0" prefWidth="511.0">
+                        <TableView fx:id="tv_restaurant_review" prefHeight="237.0" prefWidth="511.0">
                            <columns>
                               <TableColumn fx:id="tc_restaurant_userName" prefWidth="75.0" text="사용자명" />
                               <TableColumn fx:id="tc_restaurant_score" prefWidth="75.0" text="평점" />
-                              <TableColumn fx:id="tc_restaurant_reivew" prefWidth="360.0" text="리뷰 내용" />
+                              <TableColumn fx:id="tc_restaurant_review" prefWidth="360.0" text="리뷰 내용" />
                            </columns>
                         </TableView>
                      </children></AnchorPane>
@@ -45,6 +48,30 @@
             </tabs>
         </TabPane>
         <Button fx:id="bt_remove_review" layoutX="502.0" layoutY="350.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="48.0" text="삭제" />
+        <ComboBox fx:id="cb_select_Do" layoutX="39.0" layoutY="34.0" onAction="#select_Do" prefHeight="26.0" prefWidth="121.0" promptText="도 선택">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="경기도" />
+                    <String fx:value="강원도" />
+                    <String fx:value="충청북도" />
+                    <String fx:value="충청남도" />
+                    <String fx:value="경상북도" />
+                    <String fx:value="경상남도" />
+                    <String fx:value="전라북도" />
+                    <String fx:value="전라남도" />
+                    <String fx:value="부산광역시" />
+                    <String fx:value="광주광역시" />
+                    <String fx:value="대구광역시" />
+                    <String fx:value="인천광역시" />
+                    <String fx:value="대전광역시" />
+                    <String fx:value="울산광역시" />
+                    <String fx:value="세종특별자치시" />
+                    <String fx:value="제주특별자치도" />
+                    <String fx:value="서울특별시" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <ComboBox fx:id="cb_select_Si" layoutX="166.0" layoutY="34.0" onAction="#select_Si" prefHeight="26.0" prefWidth="121.0" promptText="시 선택" />
     </children>
 
 </AnchorPane>

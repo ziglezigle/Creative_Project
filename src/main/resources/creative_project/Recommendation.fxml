@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="458.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.Recommendation">
 
     <children>
@@ -21,24 +22,38 @@
                 <TableColumn fx:id="tc_recommend_food" prefWidth="125.59999084472656" text="맛집" />
             </columns>
         </TableView>
-      <MenuButton fx:id="mb_recommend_Si" layoutX="105.0" layoutY="109.0" mnemonicParsing="false" text="시">
-         <items>
-            <MenuItem mnemonicParsing="false" text="대구시" />
-            <MenuItem mnemonicParsing="false" text="남원시" />
-         </items>
-      </MenuButton>
-      <MenuButton fx:id="mb_recommend_Do" layoutX="105.0" layoutY="86.0" mnemonicParsing="false" text="도">
-         <items>
-          <MenuItem mnemonicParsing="false" text="경상북도" />
-          <MenuItem mnemonicParsing="false" text="전라남도" />
-         </items>
-      </MenuButton>
-      <MenuButton fx:id="mb_recommend_what" layoutX="271.0" layoutY="109.0" mnemonicParsing="false" text="정렬기준">
-         <items>
-            <MenuItem fx:id="menu_review" mnemonicParsing="false" onAction="#array_review" text="평점 평균순" />
-            <MenuItem fx:id="menu_visitor" mnemonicParsing="false" onAction="#array_visitor" text="방문자순" />
-         </items>
-      </MenuButton>
+        <ComboBox fx:id="cb_recommend_Do" layoutX="105.0" layoutY="77.0" prefHeight="26.0" prefWidth="93.0" promptText="도 선택">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="경기도" />
+                    <String fx:value="강원도" />
+                    <String fx:value="충청북도" />
+                    <String fx:value="충청남도" />
+                    <String fx:value="경상북도" />
+                    <String fx:value="경상남도" />
+                    <String fx:value="전라북도" />
+                    <String fx:value="전라남도" />
+                    <String fx:value="부산광역시" />
+                    <String fx:value="광주광역시" />
+                    <String fx:value="대구광역시" />
+                    <String fx:value="인천광역시" />
+                    <String fx:value="대전광역시" />
+                    <String fx:value="울산광역시" />
+                    <String fx:value="세종특별자치시" />
+                    <String fx:value="제주특별자치도" />
+                    <String fx:value="서울특별시" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <ComboBox fx:id="cb_recommend_Si" layoutX="105.0" layoutY="109.0" prefHeight="26.0" prefWidth="93.0" promptText="시 선택" />
+        <ComboBox fx:id="cb_recommend_what" layoutX="247.0" layoutY="110.0" prefHeight="26.0" prefWidth="106.0" promptText="정렬기준">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="평균 평점순" />
+                    <String fx:value="방문수" />
+                </FXCollections>
+            </items>
+        </ComboBox>
     </children>
 
 </AnchorPane>

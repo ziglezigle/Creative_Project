@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuButton;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -17,16 +17,15 @@ import persistence.dto.playLandDTO;
 import java.util.List;
 
 public class Information_Playland {
+
     @FXML
     private Button btn_search_playland;
-    @FXML
-    private Button btn_search_playland2;
 
     @FXML
-    private MenuButton mb_information_Do;
+    private ComboBox<?> cb_information_Do;
 
     @FXML
-    private MenuButton mb_information_Si;
+    private ComboBox<String> cb_information_Si;
 
     @FXML
     private TableColumn<?, ?> tc_playland_address;
@@ -63,6 +62,11 @@ public class Information_Playland {
         tc_playland_sort.setCellValueFactory(new PropertyValueFactory<>("sort"));
 
         tv_information_playland.setItems(observablePlaylands);
+    }
+
+    @FXML
+    void select_Do(ActionEvent event) {
+        Information_Food.handleDo(event, cb_information_Si);
     }
 
 }

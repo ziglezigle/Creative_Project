@@ -19,9 +19,9 @@
 <!-- 회원가입 -->
 <insert id="SignUp">
     INSERT INTO USER (
-    logid,logpw,name,sex,birth,digit,auth)
+    logid,logpw,name,sex,birth,digit,auth,nickname)
     VALUES
-    (#{logId},#{logPw},#{name},#{sex},#{birth},#{digit},#{auth});
+    (#{logId},#{logPw},#{name},#{sex},#{birth},#{digit},#{auth},#{nickname});
 </insert>
 
     <!-- id 중복검출 -->
@@ -35,6 +35,13 @@
     <!-- 비밀번호 검증 -->
     <select id="checkPw" resultType="java.lang.String">
         SELECT logpw
+        FROM user
+        WHERE logid = #{value}
+        LIMIT 1;
+    </select>
+
+    <select id="checkpk" resultType="java.lang.Integer">
+        SELECT user_id
         FROM user
         WHERE logid = #{value}
         LIMIT 1;

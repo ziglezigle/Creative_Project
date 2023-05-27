@@ -10,6 +10,7 @@ import java.io.IOException;
 
 //진짜버젼
 public class Main extends Application {
+    Parent root = null;
     @Override
     public void start(Stage primarystage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));

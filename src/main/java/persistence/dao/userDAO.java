@@ -49,6 +49,11 @@ public class userDAO {
         return auth;
     }
 
+    public int getPk(String logId){
+        SqlSession session = sqlSessionFactory.openSession();
+        int pk = session.selectOne("mapper.userMapper.checkpk", logId);
+        return pk;
+    }
 
     public void test() {
         SqlSession session = sqlSessionFactory.openSession();

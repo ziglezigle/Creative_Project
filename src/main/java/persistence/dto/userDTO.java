@@ -21,4 +21,7 @@ public class userDTO {
     private LocalDate birth;
     private String digit;
     private int auth;
+
+
+
 }

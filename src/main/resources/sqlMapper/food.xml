@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--조회용 맵퍼-->
+<mapper namespace="mapper.foodMapper">
+    <resultMap id="food" type="persistence.dto.foodDTO">
+        <result property="id" column="food_id"></result>
+        <result property="name" column="name"></result>
+        <result property="address" column="address"></result>
+        <result property="category" column="category"></result>
+
+        <result property="score" column="rate"></result>
+        <result property="review" column="content"></result>
+    </resultMap>
+
+
+    <select id="selectFood" resultMap="food" resultType="String">
+        SELECT fd.food_id, fd.name, CONCAT(state, ' ', city, ' ', road, ' ', road_no) AS address, fd.category, rv.rate, rv.content
+        FROM food_data fd
+        LEFT JOIN (
+            SELECT food_id, rate, content
+            FROM review
+            WHERE (food_id, review_date) IN (
+                SELECT food_id, MAX(review_date)
+                FROM review
+                GROUP BY food_id
+            )
+        ) rv ON fd.food_id = rv.food_id
+        <where>
+            <if test="state != null">
+                AND state LIKE CONCAT('%', #{state}, '%')
+            </if>
+            <if test="city != null">
+                AND city LIKE CONCAT('%', #{city}, '%')
+            </if>
+            <if test="name != null">
+                AND name LIKE CONCAT('%', #{name}, '%')
+            </if>
+        </where>
+    </select>
+
+
+
+
+
+</mapper>

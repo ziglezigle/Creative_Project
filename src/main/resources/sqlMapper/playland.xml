@@ -5,17 +5,53 @@
 <!-- 조회를 위한 매퍼-->
 <mapper namespace="mapper.playlandMapper">
     <resultMap id="playland" type="persistence.dto.playLandDTO">
-        <result property="name" column="NAME"></result>
-        <result property="sort" column="sort"></result>
+        <result property="id" column="spot_id"></result>
+        <result property="name" column="name"></result>
         <result property="address" column="address"></result>
 
-        <result property="score" column="score"></result>
-        <result property="review" column="review"></result>
+        <result property="score" column="rate"></result>
+        <result property="review" column="content"></result>
 
     </resultMap>
-
     <select id="selectPlayland" resultMap="playland" resultType="String">
-        SELECT * FROM outdoorgram.play_land;
+        SELECT pl.spot_id, pl.name, pl.address, rv.rate, rv.content
+        FROM play_land pl
+        LEFT JOIN (
+            SELECT spot_id, rate, content
+            FROM review
+            WHERE (spot_id, review_date) IN (
+                SELECT spot_id, MAX(review_date)
+                FROM review
+                GROUP BY spot_id)
+        ) rv ON pl.spot_id = rv.spot_id
+        <where>
+            <if test="state != null">
+                AND address LIKE CONCAT('%', #{state}, '%')
+            </if>
+            <if test="city != null">
+                AND address LIKE CONCAT('%', #{city}, '%')
+            </if>
+            <if test="name != null">
+                AND name LIKE CONCAT('%', #{name}, '%')
+            </if>
+        </where>
     </select>
+
+    <resultMap id="searched_playland" type="persistence.dto.playLandDTO">
+        <result property="id" column="spot_id"></result>
+        <result property="name" column="name"></result>
+        <result property="address" column="address"></result>
+    </resultMap>
+    <select id="searchPlayland" resultMap="searched_playland" resultType="String">
+        SELECT * FROM outdoorgram.play_land
+        WHERE address LIKE #{state} AND address LIKE #{city};
+    </select>
+
+    <select id="select_by_id" resultMap="searched_playland" resultType="String">
+        SELECT * FROM outdoorgram.play_land WHERE spot_id = #{id};
+    </select>
+
+
+
 
 </mapper>

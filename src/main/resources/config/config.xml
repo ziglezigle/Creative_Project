@@ -29,6 +29,8 @@
     <mappers>
         <mapper resource="sqlMapper/playland.xml"/>
         <mapper resource="sqlMapper/user.xml"/>
+        <mapper resource="sqlMapper/food.xml"/>
+        <mapper resource="sqlMapper/review.xml"/>
        <!-- 매퍼 경로 지정 -->
     </mappers>
 </configuration>

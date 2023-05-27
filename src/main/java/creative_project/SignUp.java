@@ -122,7 +122,7 @@ public class SignUp {
         user.setName(tf_name.getText());
         user.setDigit(tf_phone.getText());
         user.setBirth(dp_birth.getValue());
-        user.setAuth(1);
+        user.setAuth(0);
 
         int gender;
         // 성별에 따라 gender 값 세팅
@@ -132,7 +132,7 @@ public class SignUp {
             gender = 0; //0 이 여자
 
         user.setSex(gender);
-        user.setNickname("테스트닉네임");
+        user.setNickname(tf_nickname.getText());
         boolean exists = user2.idTest(tf_id.getText());
         if (exists) {
             mainGUI.alert("아이디에러", "이미 같은 아이디가 존재합니다.");
@@ -143,4 +143,42 @@ public class SignUp {
             // mainGUI 메인화면으로 돌아가는 로직을 추가해야 함
         }
     }
-}
+    @FXML
+    public void trySignUpAdmin(ActionEvent event){
+        userDTO user = new userDTO();
+
+        userDAO user2 = new userDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+        t_result.setText("");
+        user.setLogId(tf_id_admin.getText());
+
+
+        mainGUI mainGUI = new mainGUI();
+
+        user.setLogPw(pf_passwd_admin.getText());
+        user.setName(tf_name_admin.getText());
+        user.setDigit(tf_phone_admin.getText());
+        user.setBirth(dp_birth_admin.getValue());
+        user.setNickname(tf_nickname_admin.getText());
+        user.setAuth(1);
+
+        int gender;
+        // 성별에 따라 gender 값 세팅
+        if (mb_gender_admin.getText().equals("남"))
+            gender = 1;
+        else
+            gender = 0; //0 이 여자
+
+        user.setSex(gender);
+
+        boolean exists = user2.idTest(tf_id_admin.getText());
+        if (exists) {
+            mainGUI.alert("아이디에러", "이미 같은 아이디가 존재합니다.");
+        } else {
+            user2.SignUp(user);
+            mainGUI.alert("관리자 회원가입 완료", "회원가입이 완료되었습니다.");
+            // 회원가입 완료 후 확인 버튼을 누르면 메인화면으로 돌아감
+            // mainGUI 메인화면으로 돌아가는 로직을 추가해야 함
+        }
+    }
+    }
+

@@ -20,10 +20,14 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import persistence.MyBatisConnectionFactory;
 import persistence.dao.userDAO;
+import persistence.dto.UserInfo;
+import persistence.dto.userDTO;
 
 public class Login
 {
     static public String USER_ID;
+
+
 
     @FXML
     private TextField tf_id;
@@ -203,7 +207,11 @@ public class Login
                 boolean result = user.pwTest(tf_id.getText(),pf_passwd.getText());
                 if(result){
                     mainGUI.alert("로그인 성공!", "");
-                    int auth = user.getAuth(tf_id.getText());
+
+                    userDAO userDao = new userDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+                    UserInfo.setUser_id(userDao.getPk(tf_id.getText()));
+
+                    int auth = user.getAuth(tf_id.getText());  //권한검증
                     switch (auth) {
                         case 0: LoginNormal();
                             break;

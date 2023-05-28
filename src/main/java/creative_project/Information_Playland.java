@@ -94,5 +94,9 @@ public class Information_Playland {
 
         }
     }
+    @FXML
+    void select_Do(ActionEvent event) {
+        Information_Food.handleDo(event, cb_information_Si);
+    }
 
 }

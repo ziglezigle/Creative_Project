@@ -18,9 +18,21 @@
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="경기도" />
                     <String fx:value="강원도" />
-                    <String fx:value="충청도" />
-                    <String fx:value="경상도" />
-                    <String fx:value="전라도" />
+                    <String fx:value="충청북도" />
+                    <String fx:value="충청남도" />
+                    <String fx:value="경상북도" />
+                    <String fx:value="경상남도" />
+                    <String fx:value="전라북도" />
+                    <String fx:value="전라남도" />
+                    <String fx:value="부산광역시" />
+                    <String fx:value="광주광역시" />
+                    <String fx:value="대구광역시" />
+                    <String fx:value="인천광역시" />
+                    <String fx:value="대전광역시" />
+                    <String fx:value="울산광역시" />
+                    <String fx:value="세종특별자치시" />
+                    <String fx:value="제주특별자치도" />
+                    <String fx:value="서울특별시" />
                 </FXCollections>
             </items>
         </ComboBox>

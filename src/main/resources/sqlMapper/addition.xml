@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--조회용 맵퍼-->
+<mapper namespace="mapper.additionMapper">
+    <resultMap id="food" type="persistence.dto.AdditionDTO">
+        <result property="sort" column="sort"></result>
+        <result property="name" column="name"></result>
+        <result property="address" column="address"></result>
+        <result property="content" column="content"></result>
+    </resultMap>
+
+    <select id="showRequest" resultType="String" resultMap="food">
+        SELECT CONCAT(state, ' ', city) AS address, name, content
+        FROM outdoorgram.addition_demend
+        WHERE sort = #{sort};
+
+    </select>
+
+
+
+    <insert id="insertAdditionRequirment">
+        INSERT INTO addition_demend(name, sort, state, city, content)
+        VALUES(#{name}, #{sort}, #{state}, #{city}, #{content});
+    </insert>
+
+    <delete id="deleteRequest" parameterType="String">
+        DELETE FROM addition_demend
+        WHERE name = #{name};
+    </delete>
+</mapper>

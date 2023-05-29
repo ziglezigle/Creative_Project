@@ -16,6 +16,8 @@ public class foodDTO {
     private String review;
     private String state;
     private String city;
+    private String road;
+    private int road_no;
 
     public foodDTO(){}
     public foodDTO(String name, String state, String city){

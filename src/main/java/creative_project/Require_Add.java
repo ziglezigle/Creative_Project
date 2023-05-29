@@ -2,11 +2,11 @@ package creative_project;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import org.apache.ibatis.session.SqlSessionFactory;
+import persistence.MyBatisConnectionFactory;
+import persistence.dao.AdditionDAO;
+import persistence.dto.AdditionDTO;
 
 public class Require_Add {
 
@@ -14,19 +14,13 @@ public class Require_Add {
     private Button btn_add_list;
 
     @FXML
-    private MenuButton mb_choose_Do;
+    private ComboBox cb_information_Do;
 
     @FXML
-    private MenuButton mb_choose_Si;
+    private ComboBox cb_information_Si;
 
     @FXML
-    private MenuButton mb_choose_list;
-
-    @FXML
-    private MenuItem menu_food_list;
-
-    @FXML
-    private MenuItem menu_playland_list;
+    private ComboBox cb_choose_list;
 
     @FXML
     private TextArea ta_require;
@@ -37,26 +31,32 @@ public class Require_Add {
     @FXML
     void add_require_list(ActionEvent event) {
 
+        String name = tf_nameOf_there.getText();
+        if(name == ""){
+            name = null;
+        }
+        String sort = (String)cb_choose_list.getValue();
+        String state = (String)cb_information_Do.getValue();
+        String city = (String)cb_information_Si.getValue();
+        String content = ta_require.getText();
+
+        AdditionDTO additionDTO = new AdditionDTO();
+        AdditionDAO additionDAO = new AdditionDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+        try{
+            additionDAO.insertAdditionRequirement(additionDTO);
+            mainGUI.alert("등록 성공", "정상적으로 등록되었습니다");
+        }catch(Exception e){
+            mainGUI.alert("등록 실패", "");
+        }
+        //resetPage(); //리뷰화면 초기화
+
     }
 
-    @FXML
-    void choose_Do(ActionEvent event) {
 
-    }
 
     @FXML
-    void choose_Si(ActionEvent event) {
-
-    }
-
-    @FXML
-    void choose_food_list(ActionEvent event) {
-
-    }
-
-    @FXML
-    void choose_playland_list(ActionEvent event) {
-
+    void setSiInfo(ActionEvent event){
+        ROKArea.handleDo((String)cb_information_Do.getValue(), cb_information_Si);
     }
 
 }

@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import persistence.MyBatisConnectionFactory;
+import persistence.dao.foodDAO;
 import persistence.dao.playlandDAO;
 import persistence.dao.reviewDAO;
 import persistence.dto.foodDTO;
@@ -94,9 +95,16 @@ public class Information_Playland {
 
         }
     }
-    @FXML
-    void select_Do(ActionEvent event) {
-        Information_Food.handleDo(event, cb_information_Si);
+//    @FXML
+//    void select_Do(ActionEvent event) {
+//        Information_Food.handleDo(event, cb_information_Si);
+//        String test = (String) event.getSource();
+//        System.out.printf("wdqwd");
+//    }
+
+    public void setSiInfo(ActionEvent actionEvent) {
+        ROKArea.handleDo((String)cb_information_Do.getValue(), cb_information_Si);
     }
+
 
 }

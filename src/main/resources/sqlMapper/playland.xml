@@ -8,7 +8,6 @@
         <result property="id" column="spot_id"></result>
         <result property="name" column="name"></result>
         <result property="address" column="address"></result>
-
         <result property="score" column="rate"></result>
         <result property="review" column="content"></result>
 
@@ -42,6 +41,7 @@
         <result property="name" column="name"></result>
         <result property="address" column="address"></result>
     </resultMap>
+
     <select id="searchPlayland" resultMap="searched_playland" resultType="String">
         SELECT * FROM outdoorgram.play_land
         WHERE address LIKE #{state} AND address LIKE #{city};
@@ -51,6 +51,13 @@
         SELECT * FROM outdoorgram.play_land WHERE spot_id = #{id};
     </select>
 
+
+    <insert id="insertPlayLand">
+        INSERT INTO `outdoorgram`.`play_land`
+            (`name`, `address`, `sort`)
+        VALUES
+            (  #{name}, #{address},#{sort})
+    </insert>
 
 
 

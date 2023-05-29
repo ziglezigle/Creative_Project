@@ -9,7 +9,6 @@
         <result property="name" column="name"></result>
         <result property="address" column="address"></result>
         <result property="category" column="category"></result>
-
         <result property="score" column="rate"></result>
         <result property="review" column="content"></result>
     </resultMap>
@@ -39,6 +38,15 @@
             </if>
         </where>
     </select>
+
+    <insert id="insertFood">
+        INSERT INTO `outdoorgram`.`food_data`
+            (`name`, `category`, `state`, `city`, `road`, `road_no`)
+        VALUES
+            (  #{name}, #{category}, #{state}, #{city}, #{road}, #{road_no})
+    </insert>
+
+
 
 
 

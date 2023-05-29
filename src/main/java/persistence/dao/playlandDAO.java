@@ -1,5 +1,6 @@
 package persistence.dao;
 
+import creative_project.mainGUI;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import persistence.dto.foodDTO;
@@ -35,7 +36,20 @@ public class playlandDAO {
         }
         return list;
     }
-
+    public void addPlayLand(playLandDTO playLandDTODto) {
+        SqlSession session = sqlSessionFactory.openSession();
+        try {
+            session.insert("mapper.playlandMapper.insertPlayLand",playLandDTODto);
+            session.commit();
+            mainGUI.alert("추가 성공!", "");
+        }catch (Exception e){
+            mainGUI.alert("추가 실패!", "");
+            session.rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+    }
 }
 
 //

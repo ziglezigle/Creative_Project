@@ -11,6 +11,10 @@
      <!-- 타입, DTO 이름과 DTO퍼시스턴트 경로지정 -->
         <typeAlias alias="playLandDTO" type="persistence.dto.playLandDTO"/>
         <typeAlias alias="userDTO" type="persistence.dto.userDTO"/>
+        <typeAlias alias="reviewDTO" type="persistence.dto.reviewDTO"/>
+        <typeAlias alias="foodDTO" type="persistence.dto.foodDTO"/>
+        <typeAlias alias="AdditionDTO" type="persistence.dto.AdditionDTO"/>
+
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -18,7 +22,7 @@
             <!--  connecting to Local MySql -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost/outdoorgram?characterEncoding=utf8&amp;serverTimezone=UTC&amp;useSSL=false" />
+                <property name="url" value="jdbc:mysql://localhost/outdoorgram?characterEncoding=utf8&amp;serverTimezone=UTC&amp;useSSL=false&amp;allowPublicKeyRetrieval=true" />
                 <property name="username" value="root"/>
                 <property name="password" value="1234"/>
             </dataSource>
@@ -31,6 +35,7 @@
         <mapper resource="sqlMapper/user.xml"/>
         <mapper resource="sqlMapper/food.xml"/>
         <mapper resource="sqlMapper/review.xml"/>
+        <mapper resource="sqlMapper/addition.xml"></mapper>
        <!-- 매퍼 경로 지정 -->
     </mappers>
 </configuration>

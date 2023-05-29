@@ -36,7 +36,7 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <ComboBox fx:id="cb_information_Si" layoutX="117.0" layoutY="12.0" prefHeight="26.0" prefWidth="93.0" promptText="시 선택" />
+        <ComboBox fx:id="cb_information_Si" layoutX="117.0" layoutY="12.0" prefHeight="26.0" prefWidth="93.0" onAction="#setSiInfo" promptText="시 선택" />
         <TextField fx:id="tf_search_playland" layoutX="407.0" layoutY="16.0" promptText="음식점명, 관광지명" />
         <Button fx:id="btn_search_playland" layoutX="576.0" layoutY="16.0" mnemonicParsing="false" onAction="#view_search_playland" text="검색" />
         <ScrollPane layoutX="2.0" layoutY="51.0" prefHeight="264.0" prefWidth="632.0">

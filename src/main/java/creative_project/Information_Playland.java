@@ -57,7 +57,7 @@ public class Information_Playland {
 
     //테이블 뷰에 디비에서 가져온 관광지 정보 출력
     @FXML
-    void view_search_playland(ActionEvent event) {
+     void view_search_playland(ActionEvent event) {
         playlandDAO playlandDAO = new playlandDAO(MyBatisConnectionFactory.getSqlSessionFactory());
 
         playLandDTO pldto = new playLandDTO();

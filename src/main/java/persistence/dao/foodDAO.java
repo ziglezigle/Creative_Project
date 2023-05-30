@@ -49,6 +49,36 @@ public class foodDAO {
             session.close();
         }
     }
+    public void updateFood(foodDTO fDto) {
+        SqlSession session = sqlSessionFactory.openSession();
+
+        try {
+            session.update("mapper.foodMapper.",fDto);
+            session.commit();
+            mainGUI.alert("수정 성공!", "");
+        }catch (Exception e){
+            mainGUI.alert("수정 실패!", "");
+            session.rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+    }
+    public void deleteFood(foodDTO fDto) {
+        SqlSession session = sqlSessionFactory.openSession();
+
+        try {
+            session.delete("mapper.foodMapper.",fDto);
+            session.commit();
+            mainGUI.alert("수정 성공!", "");
+        }catch (Exception e){
+            mainGUI.alert("수정 실패!", "");
+            session.rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+    }
 
 
 

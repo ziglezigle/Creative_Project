@@ -25,7 +25,7 @@ public class AdditionDAO {
             session.rollback(); // 롤백 처리
             // 예외 처리 코드 작성
             // 예를 들어, 로그 출력 또는 다른 예외 처리 로직을 수행할 수 있습니다.
-            throw new Exception();
+            e.printStackTrace();
         } finally {
             session.close(); // 세션을 닫습니다.
         }

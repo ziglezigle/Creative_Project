@@ -17,6 +17,8 @@ import persistence.dto.reviewDTO;
 
 import java.util.List;
 
+
+
 public class Information_Playland {
     @FXML
     private Button btn_search_playland;
@@ -101,7 +103,11 @@ public class Information_Playland {
 //        String test = (String) event.getSource();
 //        System.out.printf("wdqwd");
 //    }
-
+      @FXML
+     void select_Do(ActionEvent event) {
+    Information_Food.handleDo(event, cb_information_Si);
+}
+    @FXML
     public void setSiInfo(ActionEvent actionEvent) {
         ROKArea.handleDo((String)cb_information_Do.getValue(), cb_information_Si);
     }

@@ -30,23 +30,31 @@ public class Require_Add {
 
     @FXML
     void add_require_list(ActionEvent event) {
-
+        AdditionDTO additionDTO = new AdditionDTO();
+        AdditionDAO additionDAO = new AdditionDAO(MyBatisConnectionFactory.getSqlSessionFactory());
         String name = tf_nameOf_there.getText();
         if(name == ""){
             name = null;
+        }else {
+
         }
         String sort = (String)cb_choose_list.getValue();
         String state = (String)cb_information_Do.getValue();
         String city = (String)cb_information_Si.getValue();
         String content = ta_require.getText();
 
-        AdditionDTO additionDTO = new AdditionDTO();
-        AdditionDAO additionDAO = new AdditionDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+        additionDTO.setSort(sort);
+        additionDTO.setState(state);
+        additionDTO.setName(name);
+        additionDTO.setCity(city);
+        additionDTO.setContent(content);
+
         try{
             additionDAO.insertAdditionRequirement(additionDTO);
             mainGUI.alert("등록 성공", "정상적으로 등록되었습니다");
         }catch(Exception e){
             mainGUI.alert("등록 실패", "");
+
         }
         //resetPage(); //리뷰화면 초기화
 

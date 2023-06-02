@@ -5,12 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import persistence.MyBatisConnectionFactory;
@@ -49,10 +44,10 @@ public class SignUp {
     @FXML
     private TextField tf_phone_admin;
     @FXML
-    private MenuButton mb_gender;
+    private ComboBox cb_gender;
 
     @FXML
-    private MenuButton mb_gender_admin;
+    private ComboBox mb_gender_admin;
     @FXML
     private MenuItem mi_male;
 
@@ -78,15 +73,15 @@ public class SignUp {
     private Button btn_back;
 
     // 성별 선택
-    @FXML
-    void setFemale(ActionEvent event) {
-        mb_gender.setText(mi_female.getText());
-    }
-
-    @FXML
-    void setMale(ActionEvent event) {
-        mb_gender.setText(mi_male.getText());
-    }
+//    @FXML
+//    void setFemale(ActionEvent event) {
+//        cb_gender.setText(mi_female.getText());
+//    }
+//
+//    @FXML
+//    void setMale(ActionEvent event) {
+//        cb_gender.setText(mi_male.getText());
+//    }
 
     @FXML
     void backMain(ActionEvent event) {
@@ -126,7 +121,7 @@ public class SignUp {
 
         int gender;
         // 성별에 따라 gender 값 세팅
-        if (mb_gender.getText().equals("남"))
+        if (cb_gender.getValue().equals("남"))
             gender = 1;
         else
             gender = 0; //0 이 여자
@@ -163,7 +158,7 @@ public class SignUp {
 
         int gender;
         // 성별에 따라 gender 값 세팅
-        if (mb_gender_admin.getText().equals("남"))
+        if (mb_gender_admin.getValue().equals("남"))
             gender = 1;
         else
             gender = 0; //0 이 여자

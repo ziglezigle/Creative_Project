@@ -11,6 +11,14 @@
         <result property="content" column="content"></result>
     </resultMap>
 
+    <resultMap id="request" type="persistence.dto.AdditionDTO">
+        <result property="sort" column="sort"></result>
+        <result property="name" column="name"></result>
+        <result property="state" column="state"></result>
+        <result property="city" column="city"></result>
+        <result property="content" column="content"></result>
+    </resultMap>
+
     <select id="showRequest" resultType="String" resultMap="food">
         SELECT CONCAT(state, ' ', city) AS address, name, content
         FROM outdoorgram.addition_demend
@@ -20,7 +28,7 @@
 
 
 
-    <insert id="insertAdditionRequirment">
+    <insert id="insertAdditionRequirement">
         INSERT INTO addition_demend(name, sort, state, city, content)
         VALUES(#{name}, #{sort}, #{state}, #{city}, #{content});
     </insert>

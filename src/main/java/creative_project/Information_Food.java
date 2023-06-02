@@ -181,7 +181,12 @@ public class Information_Food {
     }
 
 
-    public void setSiInfo(ActionEvent actionEvent) {
-        ROKArea.handleDo((String)cb_food_Do.getValue(), cb_food_Si);
-    }
+   public void setSiInfo(ActionEvent actionEvent) {
+        try {
+            ROKArea.handleDo((String)cb_food_Do.getValue(), cb_food_Si);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+  }
 }

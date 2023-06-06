@@ -130,8 +130,6 @@ public class Manager_AddRequireList {
     }
     @FXML
     public void viewSearchRequireSpot(AdditionDTO adDTO){
-
-
         List<AdditionDTO> additionDTOs = additionDAO.viewRequirement(adDTO);
         ObservableList<AdditionDTO> additionDTOObservableList = FXCollections.observableArrayList(additionDTOs);
 

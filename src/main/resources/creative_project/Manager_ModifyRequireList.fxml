@@ -17,9 +17,9 @@
                             <children>
                                 <TableView fx:id="tv_modify_touristSpot_requireList" prefHeight="264.0" prefWidth="542.0">
                                     <columns>
-                                        <TableColumn fx:id="tc_touristSpotName" prefWidth="75.0" text="관광지 이름" />
-                                        <TableColumn fx:id="tc_touristSpotAddress" prefWidth="116.0" text="주소" />
-                                        <TableColumn fx:id="tc_touristSpot_why_require" prefWidth="350.0" text="요청 사유" />
+                                        <TableColumn fx:id="tc_touristSpotName" prefWidth="114.0" text="관광지 이름" />
+                                        <TableColumn fx:id="tc_touristSpotAddress" prefWidth="171.0" text="주소" />
+                                        <TableColumn fx:id="tc_touristSpot_why_require" prefWidth="256.0" text="요청 사유" />
                                     </columns>
                                 </TableView>
                             </children></AnchorPane>
@@ -31,9 +31,9 @@
                             <children>
                                 <TableView fx:id="tv_restaurant_requireList" prefHeight="271.0" prefWidth="542.0">
                                     <columns>
-                                        <TableColumn fx:id="tc_restaurantName" prefWidth="89.0" text="상호명" />
-                                        <TableColumn fx:id="tc_restaurantAddress" prefWidth="118.0" text="주소" />
-                                        <TableColumn fx:id="tc_restaurant_why_require" prefWidth="334.0" text="요청 사유" />
+                                        <TableColumn fx:id="tc_restaurantName" prefWidth="122.0" text="상호명" />
+                                        <TableColumn fx:id="tc_restaurantAddress" prefWidth="177.0" text="주소" />
+                                        <TableColumn fx:id="tc_restaurant_why_require" prefWidth="242.0" text="요청 사유" />
                                     </columns>
                                 </TableView>
                             </children></AnchorPane>

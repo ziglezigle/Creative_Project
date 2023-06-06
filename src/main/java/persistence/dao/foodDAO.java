@@ -35,6 +35,8 @@ public class foodDAO {
         return list;
     }
 
+
+
     public void addFood(foodDTO fDto) {
         SqlSession session = sqlSessionFactory.openSession();
         try {
@@ -53,7 +55,7 @@ public class foodDAO {
         SqlSession session = sqlSessionFactory.openSession();
 
         try {
-            session.update("mapper.foodMapper.",fDto);
+            session.update("mapper.foodMapper.updateFood",fDto);
             session.commit();
             mainGUI.alert("수정 성공!", "");
         }catch (Exception e){
@@ -70,7 +72,7 @@ public class foodDAO {
         try {
             session.delete("mapper.foodMapper.",fDto);
             session.commit();
-            mainGUI.alert("수정 성공!", "");
+            mainGUI.alert("삭제 성공!", "");
         }catch (Exception e){
             mainGUI.alert("수정 실패!", "");
             session.rollback();
@@ -80,6 +82,30 @@ public class foodDAO {
         }
     }
 
+    public List<foodDTO> foodID_로_정보_찾기 (int id){
+        List<foodDTO> list = null;
+        SqlSession session = sqlSessionFactory.openSession();
+        try{
+            list = session.selectList("mapper.foodMapper.selectFoodByFoodId", id);
+        }finally{
+            session.close();
+        }
+        return list;
+    }
+
+    public int 컬럼정보로_id찾기(foodDTO fDto) {
+
+        SqlSession session = sqlSessionFactory.openSession();
+        int i;
+
+        try {
+            i = session.selectOne("mapper.foodMapper.selectFoodId", fDto);
+        } finally {
+            session.close();
+        }
+
+        return i;
+    }
 
 
 }

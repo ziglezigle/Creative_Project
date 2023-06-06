@@ -17,8 +17,8 @@
          <children>
               <TableView layoutX="113.0" layoutY="14.0" prefHeight="338.0" prefWidth="604.0">
                   <columns>
-                      <TableColumn fx:id="tc_restaurantName" prefWidth="99.20001220703125" text="상호명" />
-                      <TableColumn fx:id="tc_restaurantAddress" prefWidth="341.0" text="주소" />
+                      <TableColumn fx:id="tc_restaurantName" prefWidth="150" text="상호명" />
+                      <TableColumn fx:id="tc_restaurantAddress" prefWidth="116.0" text="주소" />
                       <TableColumn fx:id="tc_restaurantCategory" prefWidth="162.5" text="음식점 분류" />
                   </columns>
               </TableView>

@@ -17,9 +17,9 @@
                      <children>
                         <TableView fx:id="tv_touristSpot_require" prefHeight="264.0" prefWidth="542.0">
                           <columns>
-                            <TableColumn fx:id="tc_touristSpot_name" prefWidth="75.0" text="관광지 이름" />
-                            <TableColumn fx:id="tc_touristSpot_address" prefWidth="116.0" text="주소" />
-                              <TableColumn fx:id="tc_touristSpot_why" prefWidth="350.0" text="추천 이유" />
+                            <TableColumn fx:id="tc_touristSpot_name" prefWidth="108.0" text="관광지 이름" />
+                            <TableColumn fx:id="tc_touristSpot_address" prefWidth="240.0" text="주소" />
+                              <TableColumn fx:id="tc_touristSpot_why" prefWidth="193.0" text="추천 이유" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
@@ -31,9 +31,9 @@
                      <children>
                         <TableView fx:id="tv_restaurant_require" prefHeight="271.0" prefWidth="542.0">
                           <columns>
-                            <TableColumn fx:id="tc_restaurant_name" prefWidth="82.0" text="상호명" />
-                            <TableColumn fx:id="tc_restaurant_address" prefWidth="125.0" text="주소" />
-                              <TableColumn fx:id="tc_restaurant_why" prefWidth="334.0" text="추천 이유" />
+                            <TableColumn fx:id="tc_restaurant_name" prefWidth="105.0" text="상호명" />
+                            <TableColumn fx:id="tc_restaurant_address" prefWidth="218.0" text="주소" />
+                              <TableColumn fx:id="tc_restaurant_why" prefWidth="218.0" text="추천 이유" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>

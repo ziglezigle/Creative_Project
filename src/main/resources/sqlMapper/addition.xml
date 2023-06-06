@@ -19,6 +19,23 @@
         <result property="content" column="content"></result>
     </resultMap>
 
+
+
+    <insert id="insertAdditionRequirment">
+        INSERT INTO addition_demend(name, sort, state, city, coment)
+        VALUES(#{name}, #{sort}, #{state}, #{city}, #{content});
+    </insert>
+
+    <insert id="insertModificationFood">
+        INSERT INTO change_requst(user_id, food_id, sort, content)
+        VALUES(#{user_id}, #{id}, #{sort}, #{content});
+    </insert>
+
+    <insert id="insertModificationPlayland">
+        INSERT INTO change_requst(user_id, spot_id, sort, content)
+        VALUES(#{user_id}, #{id}, #{sort}, #{content});
+    </insert>
+
     <select id="showRequest" resultType="String" resultMap="food">
         SELECT CONCAT(state, ' ', city) AS address, name, content
         FROM outdoorgram.addition_demend

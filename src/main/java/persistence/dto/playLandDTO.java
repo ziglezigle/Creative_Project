@@ -23,4 +23,5 @@ public class playLandDTO {
         this.state = state;
         this.city = city;
     }
+
 }

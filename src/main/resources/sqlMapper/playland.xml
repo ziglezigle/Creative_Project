@@ -10,10 +10,9 @@
         <result property="address" column="address"></result>
         <result property="score" column="rate"></result>
         <result property="review" column="content"></result>
-
     </resultMap>
     <select id="selectPlayland" resultMap="playland" resultType="String">
-        SELECT pl.spot_id, pl.name, pl.address, rv.rate, rv.content
+        SELECT pl.spot_id, pl.name, pl.address , pl.sort, rv.rate, rv.content
         FROM play_land pl
         LEFT JOIN (
             SELECT spot_id, rate, content
@@ -81,7 +80,31 @@
         VALUES
             (  #{name}, #{address},#{sort})
     </insert>
+    <resultMap id="realPlayLand" type="persistence.dto.playLandDTO">
+        <result property="sort" column="sort"></result>
+        <result property="name" column="name"></result>
+        <result property="address" column="address"></result>
+    </resultMap>
+    <select id="selectSpotId"  resultType="java.lang.Integer">
+        SELECT spot_id
+        FROM `outdoorgram`.`play_land`
+        WHERE name = #{name} AND sort = #{sort} AND address = #{address}
+        LIMIT 0,1
+    </select>
 
+    <select id="selectSpotBySpotId" resultMap="realPlayLand" resultType="foodDTO">
+        SELECT * FROM `outdoorgram`.`play_land` WHERE spot_id  = #{spot_id}
+    </select>
 
+    <select id="countSpotRow" resultType="java.lang.Integer">
+        SELECT COUNT(*)  FROM outdoorgram.play_land
+    </select>
+    <update id="updatePlayLand" parameterType="playLandDTO">
+        UPDATE play_land
+        SET sort = #{sort},
+            address = #{address},
+            name = #{name}
+        WHERE spot_id = #{id}
+    </update>
 
 </mapper>

@@ -39,17 +39,52 @@
         </where>
     </select>
 
+
+
     <insert id="insertFood">
         INSERT INTO `outdoorgram`.`food_data`
             (`name`, `category`, `state`, `city`, `road`, `road_no`)
         VALUES
             (  #{name}, #{category}, #{state}, #{city}, #{road}, #{road_no})
     </insert>
+    <resultMap id="foodDetail" type="persistence.dto.foodDTO">
+        <result property="id" column="food_id"></result>
+        <result property="name" column="name"></result>
+        <result property="category" column="category"></result>
+        <result property="state" column="state"></result>
+        <result property="city" column="city"></result>
+        <result property="road" column="road"></result>
+        <result property="road_no" column="road_no"></result>
+    </resultMap>
 
+    <resultMap id="foodID" type="persistence.dto.foodDTO">
+        <result property="id" column="food_id"></result>
 
+    </resultMap>
+    <select id="selectFoodByFoodId" resultMap="foodDetail" resultType="foodDTO">
+        SELECT * FROM `outdoorgram`.`food_data` WHERE food_id  = #{food_id}
+    </select>
 
+    <select id="selectFoodId"  resultType="java.lang.Integer">
+        SELECT food_id
+        FROM `outdoorgram`.`food_data`
+        WHERE name = #{name} AND state = #{state} AND city = #{city}
+          AND road = #{road} AND road_no = #{road_no} AND category = #{category}
+    </select>
+    <select id="countFoodRow" resultType="java.lang.Integer">
+        SELECT COUNT(*)  FROM outdoorgram.food_data
+    </select>
 
-
+    <update id="updateFood" parameterType="foodDTO">
+        UPDATE `outdoorgram`.`food_data`
+        SET sort = #{category},
+            state = #{state},
+            city = #{city},
+            road = #{road},
+            road_no = #{road_no},
+            name = #{name}
+        WHERE food_id = #{id}
+    </update>
 
 
 </mapper>

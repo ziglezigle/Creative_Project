@@ -25,4 +25,12 @@ public class foodDTO {
         this.state = state;
         this.city = city;
     }
+    public foodDTO(String name, String state, String city,String road,int road_no,String category){
+        this.name = name;
+        this.state = state;
+        this.city = city;
+        this.road = road;
+        this.road_no = road_no;
+        this.category = category;
+    }
 }

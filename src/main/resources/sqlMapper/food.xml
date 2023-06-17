@@ -86,5 +86,10 @@
         WHERE food_id = #{id}
     </update>
 
+    <delete id="deleteFood" parameterType="java.lang.Integer" >
+        DELETE FROM food_data
+        WHERE food_id = #{id}
+    </delete>
+
 
 </mapper>

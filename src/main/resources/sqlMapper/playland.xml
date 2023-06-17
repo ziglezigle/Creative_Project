@@ -107,4 +107,9 @@
         WHERE spot_id = #{id}
     </update>
 
+    <delete id="deletePlayland" parameterType="java.lang.Integer" >
+        DELETE FROM play_land
+        WHERE spot_id = #{id}
+    </delete>
+
 </mapper>

@@ -15,12 +15,14 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView fx:id="tv_modify_touristSpot_requireList" prefHeight="264.0" prefWidth="542.0">
+                                <TableView fx:id="tv_modify_touristSpot_requireList" onMouseClicked="#handleFoodTableMouseClickedSpot" prefHeight="264.0" prefWidth="542.0">
                                     <columns>
                                         <TableColumn fx:id="tc_touristSpotName" prefWidth="104.0" text="관광지 이름" />
                                         <TableColumn fx:id="tc_touristSpotAddress" prefWidth="173.0" text="주소" />
                                         <TableColumn fx:id="tc_touristSpot_why_require" prefWidth="208.0" text="요청 사유" />
                               <TableColumn fx:id="tc_touristSpot_sort" prefWidth="54.0" text="분류" />
+                              <TableColumn fx:id="tc_touristSpot_spot_id" prefWidth="54.0" text="spot_id" />
+                              <TableColumn fx:id="tc_touristSpot_request_id" prefWidth="54.0" text="request_id" />
                                     </columns>
                                 </TableView>
                             </children></AnchorPane>
@@ -30,12 +32,14 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView fx:id="tv_restaurant_requireList" prefHeight="271.0" prefWidth="542.0">
+                                <TableView fx:id="tv_restaurant_requireList" onMouseClicked="#handleFoodTableMouseClickedFood" prefHeight="271.0" prefWidth="542.0">
                                     <columns>
                                         <TableColumn fx:id="tc_restaurantName" prefWidth="122.0" text="상호명" />
                                         <TableColumn fx:id="tc_restaurantAddress" prefWidth="177.0" text="주소" />
                                         <TableColumn fx:id="tc_restaurant_why_require" prefWidth="197.0" text="요청 사유" />
                               <TableColumn fx:id="tc_restaurant_sort" prefWidth="45.0" text="분류" />
+                              <TableColumn fx:id="tc_restaurant_food_id" prefWidth="45.0" text="food_id" />
+                              <TableColumn fx:id="tc_restaurant_request_id" prefWidth="45.0" text="request_id" />
                                     </columns>
                                 </TableView>
                             </children></AnchorPane>

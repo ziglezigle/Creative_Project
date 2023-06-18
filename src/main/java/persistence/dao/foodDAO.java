@@ -66,15 +66,15 @@ public class foodDAO {
             session.close();
         }
     }
-    public void deleteFood(foodDTO fDto) {
+    public void deleteFood(int id) {
         SqlSession session = sqlSessionFactory.openSession();
 
         try {
-            session.delete("mapper.foodMapper.",fDto);
+            session.delete("mapper.foodMapper.deleteFood",id);
             session.commit();
             mainGUI.alert("삭제 성공!", "");
         }catch (Exception e){
-            mainGUI.alert("수정 실패!", "");
+            mainGUI.alert("삭제 실패!", "");
             session.rollback();
             e.printStackTrace();
         }finally {

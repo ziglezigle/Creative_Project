@@ -90,30 +90,19 @@ public class playlandDAO {
             session.close();
         }
     }
+
+    public void deleteSpot(int id) {
+        SqlSession session = sqlSessionFactory.openSession();
+
+        try {
+            session.delete("mapper.playlandMapper.deletePlayland",id);
+            session.commit();
+        }catch (Exception e){
+            session.rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+    }
+
 }
-//
-//    public List<playLandDTO> searchPlayLand(){
-//        List<playLandDTO> list = null;
-//
-//        SqlSession session = sqlSessionFactory.openSession();
-//        try {
-//            list = session.selectList("mapper.playlandMapper.searchPlayland");
-//        }finally {
-//            session.close();
-//        }
-//        return list;
-//    }
-//
-//    public List<playLandDTO> searchPlayLandById(int id){
-//        playLandDTO tmp = new playLandDTO();
-//        tmp.setId(id);
-//
-//        List<playLandDTO> list = null;
-//        SqlSession session = sqlSessionFactory.openSession();
-//        try{
-//            list = session.selectList("mapper.playlandMapper.select_by_id", id);
-//        }finally {
-//            session.close();
-//        }
-//        return list;
-//    }

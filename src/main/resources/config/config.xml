@@ -14,6 +14,7 @@
         <typeAlias alias="reviewDTO" type="persistence.dto.reviewDTO"/>
         <typeAlias alias="foodDTO" type="persistence.dto.foodDTO"/>
         <typeAlias alias="AdditionDTO" type="persistence.dto.AdditionDTO"/>
+        <typeAlias alias="RequsetDTO" type="persistence.dto.RequestDTO"></typeAlias>
 
     </typeAliases>
     <environments default="development">
@@ -36,6 +37,7 @@
         <mapper resource="sqlMapper/food.xml"/>
         <mapper resource="sqlMapper/review.xml"/>
         <mapper resource="sqlMapper/addition.xml"></mapper>
+        <mapper resource="sqlMapper/request.xml"></mapper>
        <!-- 매퍼 경로 지정 -->
     </mappers>
 </configuration>

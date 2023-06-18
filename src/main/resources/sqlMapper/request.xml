@@ -4,11 +4,23 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--조회용 맵퍼-->
 <mapper namespace="mapper.requestMapper">
-    <resultMap id="food" type="persistence.dto.requestDTO">
+    <resultMap id="food" type="persistence.dto.RequestDTO">
         <result property="name" column="name"></result>
         <result property="address" column="address"></result>
         <result property="content" column="content"></result>
         <result property="sort" column="sort"></result>
+        <result property="food_id" column="food_id"></result>
+        <result property="chRequest_id" column="chRequest_id"></result>
+    </resultMap>
+
+
+    <resultMap id="spot" type="persistence.dto.RequestDTO">
+        <result property="name" column="name"></result>
+        <result property="address" column="address"></result>
+        <result property="content" column="content"></result>
+        <result property="sort" column="sort"></result>
+        <result property="spot_id" column="spot_id"></result>
+        <result property="chRequest_id" column="chRequest_id"></result>
     </resultMap>
 
 
@@ -17,24 +29,25 @@
 
 
     <select id="showRequestFood" resultType="String" resultMap="food">
-        SELECT CONCAT(fd.state, ' ', fd.city , ' ', fd.road, ' ', fd.road_no) AS address, fd.name, content, cr.sort
+        SELECT CONCAT(fd.state, ' ', fd.city , ' ', fd.road, ' ', fd.road_no) AS address,
+               fd.name, content, cr.sort, cr.food_id,cr.chRequest_id
         FROM outdoorgram.change_requst cr, food_data fd
         where cr.food_id = fd.food_id ;
     </select>
 
     <select id="showRequestSpot" resultType="String" resultMap="spot">
-        SELECT pl.address, pl.name, cr.content, cr.sort
+        SELECT pl.address, pl.name, cr.content, cr.sort ,cr.spot_id, cr.chRequest_id
         FROM outdoorgram.change_requst cr,play_land pl
         where cr.spot_id = pl.spot_id ;
     </select>
 
 
-    <delete id="deleteRequestFood" parameterType="String">
+    <delete id="deleteRequestFood" parameterType="java.lang.Integer">
         DELETE FROM change_requst
         WHERE food_id = #{food_id};
     </delete>
 
-    <delete id="deleteRequestSpot" parameterType="String">
+    <delete id="deleteRequestSpot" parameterType="java.lang.Integer">
         DELETE FROM change_requst
         WHERE spot_id = #{spot_id};
     </delete>

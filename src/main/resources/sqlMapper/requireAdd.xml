@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.requireAddMapper">
+    <resultMap id="memo" type="persistence.dto.requireAddDTO">
+        <result property="name" column="name"/>
+        <result property="state" column="state"/>
+        <result property="sort" column="sort"/>
+        <result property="content" column="content"/>
+        <result property="city" column="city"/>
+        <result property="address" column="address"/>
+    </resultMap>
+
+
+    <insert id="addRequire" parameterType="persistence.dto.requireAddDTO">
+            INSERT INTO addition_demend(name,sort, content, address)
+            VALUES (#{name},#{sort},#{content},CONCAT(#{state},' ',#{city}))
+    </insert>
+
+
+</mapper>

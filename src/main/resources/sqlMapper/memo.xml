@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.memoMapper">
+    <resultMap id="memo" type="persistence.dto.memoDTO">
+        <result property="date" column="date"/>
+        <result property="information" column="information"/>
+    </resultMap>
+
+    <select id="selectMemo" resultMap="memo" resultType="persistence.dto.memoDTO">
+        SELECT * FROM memo;
+    </select>
+
+    <update id="updateMemo" parameterType="persistence.dto.memoDTO">
+        UPDATE memo SET
+                        date = #{date},
+                        information = #{information}
+        WHERE id = #{id}
+    </update>
+
+    <insert id="addMemo" parameterType="persistence.dto.memoDTO">
+        INSERT INTO memo(date, information)
+        VALUES (#{date}, #{information})
+    </insert>
+
+    <delete id="deleteMemo">
+        DELETE FROM memo WHERE id = #{id}
+    </delete>
+
+</mapper>

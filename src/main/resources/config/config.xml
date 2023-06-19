@@ -16,7 +16,7 @@
         <typeAlias alias="AdditionDTO" type="persistence.dto.AdditionDTO"/>
         <typeAlias alias="memoDTO" type="persistence.dto.memoDTO"/>
         <typeAlias alias="requireAddDTO" type="persistence.dto.requireAddDTO"/>
-        <typeAlias alias="RequsetDTO" type="persistence.dto.RequestDTO"></typeAlias>
+        <typeAlias alias="RequestDTO" type="persistence.dto.RequestDTO"></typeAlias>
 
 
     </typeAliases>

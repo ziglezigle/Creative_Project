@@ -15,7 +15,7 @@
 
     <insert id="addRequire" parameterType="persistence.dto.requireAddDTO">
             INSERT INTO addition_demend(name,sort, content, address)
-            VALUES (#{name},#{sort},#{content},CONCAT(#{state},' ',#{city}))
+            VALUES (#{name},#{sort},#{content},CONCAT(#{state},' ',#{city}, ' ', #{address}))
     </insert>
 
 

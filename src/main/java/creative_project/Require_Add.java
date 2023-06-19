@@ -53,7 +53,7 @@ public class Require_Add {
         String requireContent = ta_require.getText();
         String thereAddress = tf_address.getText();
 
-        requireAddDTO newRequireData = new requireAddDTO(writtenName, thereState, thereCity, thereSort, requireContent, thereAddress );
+        requireAddDTO newRequireData = new requireAddDTO(writtenName, thereState, thereSort, requireContent, thereCity, thereAddress );
         requireAddDAO dao = new requireAddDAO(MyBatisConnectionFactory.getSqlSessionFactory());
         dao.addRequire(newRequireData);
 

@@ -37,7 +37,7 @@
     </insert>
 
     <select id="showRequest" resultType="String" resultMap="food">
-        SELECT CONCAT(state, ' ', city) AS address, name, content
+        SELECT  address, name, content
         FROM outdoorgram.addition_demend
         WHERE sort = #{sort};
     </select>

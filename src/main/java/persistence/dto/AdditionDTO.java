@@ -20,18 +20,22 @@ public class AdditionDTO {
             this.name = null;
         else
             this.name = name;
+
         if(sort.equals(""))
         this.sort = null;
         else
             this.sort = sort;
+
         if(state.equals(""))
             this.state = null;
         else
         this.state = state;
+
         if(city.equals(""))
             this.city=null;
         else
         this.city = city;
+
         if(content.equals(""))
             this.content=null;
                     else

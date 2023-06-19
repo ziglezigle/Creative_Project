@@ -40,7 +40,6 @@
         SELECT CONCAT(state, ' ', city) AS address, name, content
         FROM outdoorgram.addition_demend
         WHERE sort = #{sort};
-
     </select>
 
 

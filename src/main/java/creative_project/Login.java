@@ -218,13 +218,10 @@ public class Login
                         default: loginManager();
                             break;
                     }
-
                 }else {
                     mainGUI.alert("비밀번호 틀림", "비밀번호가 틀렸습니다.");
                 }
             }
-
-//
         }
         catch (Exception e)
         {
@@ -247,7 +244,6 @@ public class Login
         double y = primaryStage.getY() + (primaryStage.getHeight() - scene.getHeight()) / 2.0;
         primaryStage.setX(x);
         primaryStage.setY(y);
-
         primaryStage.show();
 
     }

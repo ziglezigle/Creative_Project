@@ -109,24 +109,11 @@ public class SignUp {
         userDAO user2 = new userDAO(MyBatisConnectionFactory.getSqlSessionFactory());
         t_result.setText("");
         user.setLogId(tf_id.getText());
-
-
         mainGUI mainGUI = new mainGUI();
-
         user.setLogPw(pf_passwd.getText());
         user.setName(tf_name.getText());
         user.setDigit(tf_phone.getText());
-        user.setBirth(dp_birth.getValue());
         user.setAuth(0);
-
-        int gender;
-        // 성별에 따라 gender 값 세팅
-        if (cb_gender.getValue().equals("남"))
-            gender = 1;
-        else
-            gender = 0; //0 이 여자
-
-        user.setSex(gender);
         user.setNickname(tf_nickname.getText());
         boolean exists = user2.idTest(tf_id.getText());
         if (exists) {

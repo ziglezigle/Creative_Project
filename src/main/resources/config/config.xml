@@ -14,6 +14,7 @@
         <typeAlias alias="reviewDTO" type="persistence.dto.reviewDTO"/>
         <typeAlias alias="foodDTO" type="persistence.dto.foodDTO"/>
         <typeAlias alias="AdditionDTO" type="persistence.dto.AdditionDTO"/>
+        <typeAlias alias="locationDTO" type="persistence.dto.locationDTO"/>
         <typeAlias alias="RequsetDTO" type="persistence.dto.RequestDTO"></typeAlias>
 
     </typeAliases>
@@ -25,7 +26,7 @@
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://localhost/outdoorgram?characterEncoding=utf8&amp;serverTimezone=UTC&amp;useSSL=false&amp;allowPublicKeyRetrieval=true" />
                 <property name="username" value="root"/>
-                <property name="password" value="1234"/>
+                <property name="password" value="4321"/>
             </dataSource>
 
         </environment>
@@ -37,6 +38,7 @@
         <mapper resource="sqlMapper/food.xml"/>
         <mapper resource="sqlMapper/review.xml"/>
         <mapper resource="sqlMapper/addition.xml"></mapper>
+        <mapper resource="sqlMapper/location.xml"></mapper>
         <mapper resource="sqlMapper/request.xml"></mapper>
        <!-- 매퍼 경로 지정 -->
     </mappers>

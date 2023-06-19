@@ -63,12 +63,12 @@
             </children>
         </AnchorPane>
 
-        <TableView layoutX="655.0" layoutY="51.0" prefHeight="380.0" prefWidth="320.0">
+        <TableView fx:id="tv_information_weather" layoutX="655.0" layoutY="51.0" prefHeight="380.0" prefWidth="320.0">
             <columns>
-                <TableColumn text="날짜" />
-                <TableColumn text="날씨상태" />
-                <TableColumn text="최저기온(℃)" />
-                <TableColumn text="최고기온(℃)" />
+                <TableColumn fx:id="tc_date" text="날짜" />
+                <TableColumn fx:id="tc_sky" text="날씨상태" />
+                <TableColumn fx:id="tc_tmn" text="최저기온(℃)" />
+                <TableColumn fx:id="tc_tmx" text="최고기온(℃)" />
             </columns>
         </TableView>
         <Line endX="-100.0" endY="443.0000305175781" layoutX="745.0" layoutY="1.0" startX="-100.0" stroke="#9e9e9e" strokeLineCap="ROUND" strokeWidth="3.0" />

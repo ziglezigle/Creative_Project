@@ -78,5 +78,32 @@ public class RequestDAO {
         }
     }
 
+    public void insertRequestFood(RequestDTO dto){
+        SqlSession session = sqlSessionFactory.openSession();
+        System.out.println(dto.toString());
+        try{
+            session.insert("mapper.requestMapper.insertRequestFood", dto);
+            session.commit();
+        }catch (Exception e){
+            session.rollback();
+        }finally {
+            session.close();
+        }
+    }
+
+    public void insertRequestPlayland(RequestDTO dto){
+        SqlSession session = sqlSessionFactory.openSession();
+        System.out.println(dto.toString());
+
+        try{
+            session.insert("mapper.requestMapper.insertRequestPlayland", dto);
+            session.commit();
+        }catch (Exception e){
+            session.rollback();
+        }finally {
+            session.close();
+        }
+    }
+
 
 }

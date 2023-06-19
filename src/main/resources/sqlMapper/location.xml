@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--조회용 맵퍼-->
+<mapper namespace="mapper.locationMapper">
+    <resultMap id="location" type="persistence.dto.locationDTO">
+        <result property="nx" column="nx"></result>
+        <result property="ny" column="ny"></result>
+        <result property="code" column="code"></result>
+    </resultMap>
+
+    <select id="getNxNyCode" resultType="String" resultMap="location">
+        SELECT nx, ny, code FROM area
+        WHERE step1 = #{Do} AND step2 = #{Si};
+    </select>
+
+    <select id="getCode" resultType="String" resultMap = "location">
+        SELECT code FROM area
+        WHERE step1 = #{Do} AND step2 = #{Si};
+    </select>
+
+</mapper>

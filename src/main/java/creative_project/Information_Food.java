@@ -1,5 +1,8 @@
 package creative_project;
 
+import Forecast.MiddleTerm;
+import Forecast.ShortTerm;
+import Forecast.weatherData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,10 +12,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import persistence.MyBatisConnectionFactory;
 import persistence.dao.foodDAO;
+import persistence.dao.locationDAO;
 import persistence.dao.reviewDAO;
 import persistence.dto.foodDTO;
+import persistence.dto.locationDTO;
 import persistence.dto.reviewDTO;
 
+import java.io.IOException;
 import java.util.List;
 
 public class Information_Food {
@@ -55,6 +61,21 @@ public class Information_Food {
     @FXML
     private TableView<foodDTO> tv_information_food;
 
+    @FXML
+    private TableView<weatherData> tv_information_weather;
+
+    @FXML
+    private TableColumn tc_date;
+
+    @FXML
+    private TableColumn tc_sky;
+
+    @FXML
+    private TableColumn tc_tmn;
+
+    @FXML
+    private TableColumn tc_tmx;
+
     //테이블 뷰에 디비에서 가져온 맛집 정보 출력
     @FXML
     void view_search_food(ActionEvent event) {
@@ -80,7 +101,7 @@ public class Information_Food {
 
     //출력된 테이블 뷰에서 튜플 더블 클릭시 해당 행의 리뷰 정보 출력
     @FXML
-    void handleFoodTableMouseClicked(MouseEvent event) {
+    void handleFoodTableMouseClicked(MouseEvent event) throws IOException {
         if (event.getClickCount() == 2) {
             reviewDAO rvDAO = new reviewDAO(MyBatisConnectionFactory.getSqlSessionFactory());
 
@@ -95,6 +116,29 @@ public class Information_Food {
             tc_food_review.setCellValueFactory(new PropertyValueFactory<>("content"));
 
             tv_selected_review.setItems(observableReview);
+
+            List<weatherData> list = null;
+
+            //단기 예보 리스트로 가져옴
+            String[] address = rowData.getAddress().split(" ", 4);
+            locationDAO dao = new locationDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+            locationDTO dto = dao.getNxNyCode(address[0], address[1]);
+
+            try{
+                list = ShortTerm.getWeatherInfo(dto.getNx(), dto.getNy());
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            //단기 예보 리스트에 중기 예보 리스트 합침
+//            list.addAll(MiddleTerm.getWeatherInfo(dto.getCode()));
+
+            ObservableList<weatherData> observableWeather = FXCollections.observableArrayList(list);
+            tc_date.setCellValueFactory(new PropertyValueFactory<>("date"));
+            tc_sky.setCellValueFactory(new PropertyValueFactory<>("sky"));
+            tc_tmn.setCellValueFactory(new PropertyValueFactory<>("tmn"));
+            tc_tmx.setCellValueFactory(new PropertyValueFactory<>("tmx"));
+
+            tv_information_weather.setItems(observableWeather);
 
         }
     }
@@ -181,12 +225,12 @@ public class Information_Food {
     }
 
 
-   public void setSiInfo(ActionEvent actionEvent) {
+    public void setSiInfo(ActionEvent actionEvent) {
         try {
             ROKArea.handleDo((String)cb_food_Do.getValue(), cb_food_Si);
         }catch (Exception e){
             e.printStackTrace();
         }
 
-  }
+    }
 }

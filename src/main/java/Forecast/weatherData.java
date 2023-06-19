@@ -1,12 +1,27 @@
 package Forecast;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+@Getter
+@Setter
+@ToString
 public class weatherData {
     public String date, sky;
     public int weather, tmp, tmn, tmx;
 
-    weatherData(String date, String time, JsonNode itemNode){
+    public weatherData(){}
+
+    public weatherData(String date, String sky, int tmn, int tmx){
+        this.date = date;
+        this.sky = sky;
+        this.tmn = tmn;
+        this.tmx = tmx;
+    }
+
+    public weatherData(String date, String time, JsonNode itemNode){
         this.date = date;
         tmp = getTmpNow(date, time, itemNode);
         tmn = tmx = tmp;

@@ -1,5 +1,7 @@
 package creative_project;
 
+import Forecast.ShortTerm;
+import Forecast.weatherData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,9 +11,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import persistence.MyBatisConnectionFactory;
 import persistence.dao.foodDAO;
+import persistence.dao.locationDAO;
 import persistence.dao.playlandDAO;
 import persistence.dao.reviewDAO;
 import persistence.dto.foodDTO;
+import persistence.dto.locationDTO;
 import persistence.dto.playLandDTO;
 import persistence.dto.reviewDTO;
 
@@ -56,10 +60,25 @@ public class Information_Playland {
     @FXML
     private TableView<reviewDTO> tv_selected_review;
 
+    @FXML
+    private TableView<weatherData> tv_information_weather;
+
+    @FXML
+    private TableColumn tc_date;
+
+    @FXML
+    private TableColumn tc_sky;
+
+    @FXML
+    private TableColumn tc_tmn;
+
+    @FXML
+    private TableColumn tc_tmx;
+
 
     //테이블 뷰에 디비에서 가져온 관광지 정보 출력
     @FXML
-     void view_search_playland(ActionEvent event) {
+    void view_search_playland(ActionEvent event) {
         playlandDAO playlandDAO = new playlandDAO(MyBatisConnectionFactory.getSqlSessionFactory());
 
         playLandDTO pldto = new playLandDTO();
@@ -95,18 +114,41 @@ public class Information_Playland {
 
             tv_selected_review.setItems(observableReview);
 
+            List<weatherData> list = null;
+
+            //단기 예보 리스트로 가져옴
+            String[] address = rowData.getAddress().split(" ", 4);
+            locationDAO dao = new locationDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+            locationDTO dto = dao.getNxNyCode(address[0], address[1]);
+
+            try{
+                list = ShortTerm.getWeatherInfo(dto.getNx(), dto.getNy());
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            //단기 예보 리스트에 중기 예보 리스트 합침
+//            list.addAll(MiddleTerm.getWeatherInfo(dto.getCode()));
+
+            ObservableList<weatherData> observableWeather = FXCollections.observableArrayList(list);
+            tc_date.setCellValueFactory(new PropertyValueFactory<>("date"));
+            tc_sky.setCellValueFactory(new PropertyValueFactory<>("sky"));
+            tc_tmn.setCellValueFactory(new PropertyValueFactory<>("tmn"));
+            tc_tmx.setCellValueFactory(new PropertyValueFactory<>("tmx"));
+
+            tv_information_weather.setItems(observableWeather);
+
         }
     }
-//    @FXML
+    //    @FXML
 //    void select_Do(ActionEvent event) {
 //        Information_Food.handleDo(event, cb_information_Si);
 //        String test = (String) event.getSource();
 //        System.out.printf("wdqwd");
 //    }
-      @FXML
-     void select_Do(ActionEvent event) {
-    Information_Food.handleDo(event, cb_information_Si);
-}
+    @FXML
+    void select_Do(ActionEvent event) {
+        Information_Food.handleDo(event, cb_information_Si);
+    }
     @FXML
     public void setSiInfo(ActionEvent actionEvent) {
         ROKArea.handleDo((String)cb_information_Do.getValue(), cb_information_Si);

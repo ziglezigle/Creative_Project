@@ -52,4 +52,15 @@
         WHERE spot_id = #{spot_id};
     </delete>
 
+
+    <insert id="insertRequestFood">
+        INSERT INTO change_requst(user_id, food_id, sort, content)
+        VALUES (#{user_id}, #{food_id}, #{sort}, #{content})
+    </insert>
+
+    <insert id="insertRequestPlayland">
+        INSERT INTO change_requst(user_id, spot_id, sort, content)
+        VALUES (#{user_id}, #{id}, #{sort}, #{content})
+    </insert>
+
 </mapper>

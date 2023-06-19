@@ -19,8 +19,8 @@
          </font></Label>
 
         <Label layoutX="138.0" layoutY="90.0" text="분류" />
-        <Label layoutX="130.0" layoutY="215.0" text="추천이유" />
-        <TextArea fx:id="ta_require" layoutX="204.0" layoutY="214.0" prefHeight="128.0" prefWidth="190.0" promptText="맛있었던 음식, 외관, 분위기 등등 자유롭게 작성해주세요. " />
+        <Label layoutX="125.0" layoutY="214.0" text="추천이유" />
+        <TextArea fx:id="ta_require" layoutX="204.0" layoutY="214.0" prefHeight="128.0" prefWidth="259.0" promptText="맛있었던 음식, 외관, 분위기 등등 자유롭게 작성해주세요. " />
         <Button fx:id="btn_add_list" layoutX="346.0" layoutY="351.0" mnemonicParsing="false" onAction="#add_require_list" prefHeight="22.0" prefWidth="48.0" text="등록" />
       <ComboBox fx:id="cb_choose_list" layoutX="204.0" layoutY="86.0" prefHeight="14.0" prefWidth="82.0" promptText="선택">
         <items>
@@ -54,9 +54,11 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <ComboBox fx:id="cb_information_Si" layoutX="205.0" layoutY="181.0" prefHeight="14.0" prefWidth="82.0" promptText="시 선택" />
+        <ComboBox fx:id="cb_information_Si" layoutX="299.0" layoutY="151.0" prefHeight="14.0" prefWidth="82.0" promptText="시 선택" />
       <Label layoutX="113.0" layoutY="123.0" text="상호(관광지)명" />
       <TextField fx:id="tf_nameOf_there" layoutX="204.0" layoutY="119.0" prefHeight="22.0" prefWidth="125.0" />
+      <Label layoutX="126.0" layoutY="185.0" text="상세주소" />
+      <TextField fx:id="tf_nameOf_there1" layoutX="204.0" layoutY="181.0" prefHeight="22.0" prefWidth="259.0" />
     </children>
 
 </AnchorPane>

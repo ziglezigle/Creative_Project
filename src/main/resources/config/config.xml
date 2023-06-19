@@ -14,8 +14,14 @@
         <typeAlias alias="reviewDTO" type="persistence.dto.reviewDTO"/>
         <typeAlias alias="foodDTO" type="persistence.dto.foodDTO"/>
         <typeAlias alias="AdditionDTO" type="persistence.dto.AdditionDTO"/>
+
         <typeAlias alias="locationDTO" type="persistence.dto.locationDTO"/>
         <typeAlias alias="RequsetDTO" type="persistence.dto.RequestDTO"></typeAlias>
+        <typeAlias alias="memoDTO" type="persistence.dto.memoDTO"/>
+        <typeAlias alias="requireAddDTO" type="persistence.dto.requireAddDTO"/>
+        <typeAlias alias="RequestDTO" type="persistence.dto.RequestDTO"></typeAlias>
+
+
 
     </typeAliases>
     <environments default="development">
@@ -35,6 +41,8 @@
     <mappers>
         <mapper resource="sqlMapper/playland.xml"/>
         <mapper resource="sqlMapper/user.xml"/>
+        <mapper resource="sqlMapper/memo.xml"/>
+        <mapper resource="sqlMapper/requireAdd.xml"/>
         <mapper resource="sqlMapper/food.xml"/>
         <mapper resource="sqlMapper/review.xml"/>
         <mapper resource="sqlMapper/addition.xml"></mapper>

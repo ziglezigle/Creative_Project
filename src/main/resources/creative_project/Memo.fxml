@@ -1,50 +1,531 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<?import javafx.collections.FXCollections?>
-<?import java.lang.Integer?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.Memo">
-
-    <children>
-        <Label layoutX="276.0" layoutY="18.0" text="일정 관리" />
-        <DatePicker fx:id="dp_go" layoutX="118.0" layoutY="272.0" prefHeight="22.0" prefWidth="114.0" promptText="날짜 검색" />
-        <TableView fx:id="tv_memo" layoutX="34.0" layoutY="47.0" prefHeight="211.0" prefWidth="530.0">
-            <columns>
-                <TableColumn fx:id="tc_go" prefWidth="98.4000244140625" text="날짜" />
-                <TableColumn fx:id="tc_memo_playland" prefWidth="82.4000244140625" text="관광지" />
-                <TableColumn fx:id="tc_memo_food" prefWidth="80.79998779296875" text="음식점" />
-                <TableColumn fx:id="tc_memo_memo" prefWidth="267.9999755859375" text="메모" />
-            </columns>
-        </TableView>
-        <Label layoutX="70.0" layoutY="276.0" text="날짜" />
-        <Label layoutX="64.0" layoutY="306.0" text="관광지" />
-        <TextField fx:id="tf_memo_playland" layoutX="118.0" layoutY="302.0" prefHeight="22.0" prefWidth="114.0" />
-        <TextField fx:id="tf_memo_food" layoutX="118.0" layoutY="331.0" prefHeight="22.0" prefWidth="114.0" />
-        <Label layoutX="64.0" layoutY="335.0" text="음식점" />
-        <Label layoutX="243.0" layoutY="306.0" text="메모" />
-        <TextArea fx:id="ta_memo_memo" layoutX="272.0" layoutY="306.0" prefHeight="77.0" prefWidth="211.0" />
-        <Button fx:id="btn_memo_add" layoutX="498.0" layoutY="328.0" mnemonicParsing="false" onAction="#add_memo" text="추가" />
-        <Button fx:id="btn_menu_remove" layoutX="498.0" layoutY="358.0" mnemonicParsing="false" onAction="#remove_memo" text="삭제" />
-      <ComboBox layoutX="272.0" layoutY="272.0" prefHeight="22.0" prefWidth="48.0" />
-      <Label layoutX="249.0" layoutY="276.0" text="시" />
-      <Label layoutX="337.0" layoutY="276.0" text="분" />
-      <ComboBox layoutX="359.0" layoutY="272.0" prefHeight="22.0" prefWidth="48.0">
-          <items>
-              <FXCollections fx:factory="observableArrayList">
-                  <Integer fx:value="1" />
-              </FXCollections>
-          </items>
-      </ComboBox>
-    </children>
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.Memo">
+   <children>
+      <Pane fx:id="pane" layoutX="14.0" layoutY="55.0" prefHeight="440.0" prefWidth="686.0" style="-fx-background-color: #E0E0E0;">
+         <children>
+            <GridPane fx:id="grid" gridLinesVisible="true" prefHeight="440.0" prefWidth="688.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="CENTER" text="일" textFill="#fe4371">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label alignment="CENTER" text="월">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+                     <children>
+                        <Label alignment="CENTER" text="화">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3">
+                     <children>
+                        <Label alignment="CENTER" text="수">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5">
+                     <children>
+                        <Label alignment="CENTER" text="금">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="103.0" prefWidth="193.0" GridPane.columnIndex="6">
+                     <children>
+                        <Label alignment="CENTER" text="토" textFill="#726cf2">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="1">
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tf_memo_01" opacity="0.0" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="2">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_02" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="3">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_03" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="4">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_04" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="5">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_05" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="6" textFill="#726cf2">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_06" prefHeight="50.0" prefWidth="96.0" style="-fx-background-color: e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label text="7" textFill="#fe4371">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_07" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Label text="8">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_08" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <Label text="9">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_09" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <children>
+                        <Label text="10">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_10" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                     <children>
+                        <Label text="11">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_11" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                     <children>
+                        <Label text="12">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_12" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                     <children>
+                        <Label text="13" textFill="#726cf2">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_13" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
+                     <children>
+                        <Label text="14" textFill="#fe4371">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_14" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <Label text="15">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_15" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <children>
+                        <Label text="16">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_16" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                     <children>
+                        <Label text="17">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_17" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                     <children>
+                        <Label text="18">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_18" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                     <children>
+                        <Label text="19">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_19" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                     <children>
+                        <Label text="20" textFill="#726cf2">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_20" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="4">
+                     <children>
+                        <Label text="21" textFill="#fe4371">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_21" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <Label text="22">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_22" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <children>
+                        <Label text="23">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_23" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                     <children>
+                        <Label text="24">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="tf_memo_24" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                     <children>
+                        <Label text="25">
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tf_memo_25" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                     <children>
+                        <Label text="26">
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tf_memo_26" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                     <children>
+                        <Label text="27" textFill="#726cf2">
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tf_memo_27" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="5">
+                     <children>
+                        <Label text="28" textFill="#fe4371">
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tf_memo_28" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <children>
+                        <Label text="29">
+                           <VBox.margin>
+                              <Insets left="6.0" top="3.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tf_memo_29" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                     <children>
+                        <Label text="30">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tf_memo_30" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="77.0" prefWidth="98.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                     <children>
+                        <Label text="31">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tf_memo_31" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4">
+                     <children>
+                        <Label text="목">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+      <Pane fx:id="Pane" layoutX="18.0" layoutY="24.0" prefHeight="62.0" prefWidth="678.0">
+         <children>
+            <Button layoutX="202.0" layoutY="-17.0" mnemonicParsing="false" style="-fx-background-radius: 50;" text="&lt;">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_month" layoutX="252.0" layoutY="-21.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="160.0" text="2023년 6월">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btn_nextMonth" layoutX="432.0" layoutY="-17.0" mnemonicParsing="false" style="-fx-background-radius: 50;" text="&gt;">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnManage" alignment="CENTER" layoutX="594.0" layoutY="-11.0" mnemonicParsing="false" onAction="#manageMemo" prefHeight="28.0" prefWidth="73.0" style="-fx-background-radius: 100;" text="일정 관리">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>

@@ -30,7 +30,6 @@
                   <MenuItem fx:id="menu_view_modify_require" mnemonicParsing="false" onAction="#view_modify_require" text="관광지/맛집 수정 요청 조회" />
                   <MenuItem fx:id="menu_modify_touristSpot" mnemonicParsing="false" onAction="#modify_touristSpot" text="관광지 정보 수정" />
                   <MenuItem fx:id="menu_modify_restaurant" mnemonicParsing="false" onAction="#modify_restaurant" text="맛집 정보 수정" />
-                  <MenuItem fx:id="menu_remove_review" mnemonicParsing="false" onAction="#remove_review" text="리뷰 삭제" />
               </items>
             </MenuButton>
             </children>

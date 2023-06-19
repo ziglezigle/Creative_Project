@@ -37,6 +37,7 @@
                 AND name LIKE CONCAT('%', #{name}, '%')
             </if>
         </where>
+        limit 0,99999
     </select>
 
 
@@ -72,7 +73,7 @@
           AND road = #{road} AND road_no = #{road_no} AND category = #{category}
     </select>
     <select id="countFoodRow" resultType="java.lang.Integer">
-        SELECT COUNT(*)  FROM outdoorgram.food_data
+        SELECT COUNT(*)  FROM outdoorgram.food_data  limit 0,99999
     </select>
 
     <update id="updateFood" parameterType="foodDTO">

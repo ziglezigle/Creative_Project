@@ -9,29 +9,32 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.Require_Add">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="creative_project.Require_Add">
 
     <children>
         <Label layoutX="122.0" layoutY="26.0" text="관광지, 맛집 목록 추가 요청">
-         <font>
-            <Font size="22.0" />
-         </font></Label>
+            <font>
+                <Font size="22.0" />
+            </font></Label>
 
         <Label layoutX="138.0" layoutY="90.0" text="분류" />
-        <Label layoutX="125.0" layoutY="214.0" text="추천이유" />
-        <TextArea fx:id="ta_require" layoutX="204.0" layoutY="214.0" prefHeight="128.0" prefWidth="259.0" promptText="맛있었던 음식, 외관, 분위기 등등 자유롭게 작성해주세요. " />
-        <Button fx:id="btn_add_list" layoutX="346.0" layoutY="351.0" mnemonicParsing="false" onAction="#add_require_list" prefHeight="22.0" prefWidth="48.0" text="등록" />
-      <ComboBox fx:id="cb_choose_list" layoutX="204.0" layoutY="86.0" prefHeight="14.0" prefWidth="82.0" promptText="선택">
-        <items>
-            <FXCollections fx:factory="observableArrayList">
-            <String fx:value="관광지" />
-            <String fx:value="맛집" />
-            </FXCollections>
-        </items>
-      </ComboBox>
-      <Label layoutX="137.0" layoutY="157.0" text="주소" />
-        <ComboBox fx:id="cb_information_Do" layoutX="205.0" layoutY="151.0" onAction="#setSiInfo" prefHeight="14.0" prefWidth="82.0" promptText="도 선택">
+
+        <Label layoutX="130.0" layoutY="259.0" text="추천이유" />
+        <TextArea fx:id="ta_require" layoutX="204.0" layoutY="258.0" prefHeight="128.0" prefWidth="190.0" promptText="맛있었던 음식, 외관, 분위기 등등 자유롭게 작성해주세요. " />
+        <Button fx:id="btn_add_list" layoutX="346.0" layoutY="395.0" mnemonicParsing="false" onAction="#addRequire" prefHeight="22.0" prefWidth="48.0" text="등록" />
+        <ComboBox fx:id="cb_choose_list" layoutX="204.0" layoutY="86.0" promptText="선택">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="관광지" />
+                    <String fx:value="맛집" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Label layoutX="137.0" layoutY="157.0" text="주소" />
+        <ComboBox fx:id="cb_information_Do" layoutX="205.0" layoutY="152.0" onAction="#select_Do" prefHeight="26.0" prefWidth="93.0" promptText="도 선택">
+
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="경기도" />
@@ -54,11 +57,13 @@
                 </FXCollections>
             </items>
         </ComboBox>
+
         <ComboBox fx:id="cb_information_Si" layoutX="299.0" layoutY="151.0" prefHeight="14.0" prefWidth="82.0" promptText="시 선택" />
       <Label layoutX="113.0" layoutY="123.0" text="상호(관광지)명" />
       <TextField fx:id="tf_nameOf_there" layoutX="204.0" layoutY="119.0" prefHeight="22.0" prefWidth="125.0" />
       <Label layoutX="126.0" layoutY="185.0" text="상세주소" />
       <TextField fx:id="tf_nameOf_there1" layoutX="204.0" layoutY="181.0" prefHeight="22.0" prefWidth="259.0" />
+
     </children>
 
 </AnchorPane>
